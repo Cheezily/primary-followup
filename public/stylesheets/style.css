@@ -87,3 +87,20 @@ button:active {
 .next {
   margin-left: 580px;
 }
+
+.slider {
+  width: 300px;
+}
+
+.sliderLabel {
+  float: left;
+  text-align: center;
+}
+
+.sliderLabelOn {
+  color: orange;
+}
+
+.clearFloat {
+  clear: both;
+}

@@ -12,6 +12,10 @@
 
         <div class='welcome q0'>
           <h2>Press next to begin.</h2>
+          <input type="range" name="testSlider" class='slider'
+          min="0" max="10" step="1">
+          <br>
+          <div class='testSlider'></div>
         </div>
 
         <div class='question q1'>
@@ -25,11 +29,27 @@
           (Choose one)</h3>
           <div class='q2List'></div>
         </div>
+
+        <div class='question q3' style="border: 1px dotted blue;">
+          <h3>What candidate do you most support right now? (Choose one)</h3>
+          <div class='q3List'></div>
+        </div>
+
+        <div class='question q4' style="border: 1px dotted blue;">
+          <h3>On a scale on 1 to 10, with 10 being very clear and 1 being
+          very unclear, how clear do you believe <span id='faveCandidate'>
+          </span>'s stance on <span id='faveIssue'></span> is?</h3>
+          <input type="range" name="claritySlider" class='slider' min="0" max="10"><br>
+          <div class='q4labels'></div>
+        </div>
+
       </div>
 
       <div class='warning'></div>
       <button class="next">Next</button>
+
     </div>
+
 
     <script type="text/javascript" src="/javascripts/main.js"></script>
 </body>

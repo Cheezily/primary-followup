@@ -1,8 +1,13 @@
 function startQuiz() {
 
-  var candidates = ['Hillary Clinton', 'Bernie Sanders',
-    'Jeb Bush', 'Ted Cruz', 'Donald Trump', 'John Kasich',
-    'Chris Christie', 'Ben Carson', 'Carly Fiorina', 'Marco Rubio'];
+  setSlider('testSlider');
+
+  var candidates = [{id: 1, display: 'Hillary Clinton'},
+    {id: 2, display: 'Bernie Sanders'}, {id: 3, display: 'Jeb Bush'},
+    {id: 4, display: 'Ted Cruz'}, {id: 5, display: 'Donald Trump'},
+    {id: 6, display: 'John Kasich'}, {id: 7, display: 'Chris Christie'},
+    {id: 8, display: 'Ben Carson'}, {id: 9, display: 'Carly Fiorina'},
+    {id: 10, display: 'Marco Rubio'}];
 
   var traits = [{id: 1, display: 'Honest'}, {id: 2, display: 'Trustworthy'},
     {id: 3, display: 'Experienced'}, {id: 4, display: 'Intellegent'},
@@ -24,13 +29,16 @@ function startQuiz() {
   var questionNumber = 0; //used as a step counter for the whole script
   var fadeDelay = 300; //time in ms for questions to transition
 
+  //jQuery.easing.def = "easeOutQuad";
 
   $('.next').click(function() {
 
-    console.log(questionNumber);
+    //console.log(questionNumber);
 
     if (questionTest(questionNumber)) {
       //questionNumber++;
+      console.log(JSON.stringify(responses));
+
       cycleQuestions(questionNumber, questionNumber + 1);
       showQuestionOptions(questionNumber);
       questionNumber++;
@@ -48,6 +56,7 @@ function startQuiz() {
     console.log('running question: ' + q);
 
     if (q === 0) {
+
     }
 
     if (q === 1) {
@@ -59,6 +68,11 @@ function startQuiz() {
     if (q === 2) {
       var issueList = randomize(issues);
       $('.q2List').append(showList("issueList", issueList, "radio"));
+    }
+
+    if (q === 3) {
+      var candidateList = randomize(candidates);
+      $('.q3List').append(showList("candidateList", candidateList, "radio"));
     }
 
   };
@@ -74,9 +88,14 @@ function startQuiz() {
       var q1Length = 0;
       $('input[name=traitList]:checked').each(function() {
         if ($(this).val()) q1Length++;
-        console.log("selected: " + $(this).val());
-        if ($(this).val() == traits.length.toString()) noneOfTheAbove = true;
+        //console.log("selected: " + $(this).val());
+        if ($(this).val() == traits.length.toString())
+         {
+           noneOfTheAbove = true;
+         }
       });
+
+      //console.log(q1Length.toString() + " nan:" + noneOfTheAbove);
 
       if (q1Length > 1 && noneOfTheAbove) {
         $('.warning').text('None of the above must be selected by itself');
@@ -110,7 +129,21 @@ function startQuiz() {
     }
 
     if (q === 2) {
+      if ($('input[name=issueList]:checked').val()) {
+        responses["issues"] = $('input[name=issueList]:checked').val();
+        return true;
+      } else {
+        return false;
+      }
+    }
 
+    if (q === 3) {
+      if ($('input[name=candidateList]:checked').val()) {
+        responses["prefer"] = $('input[name=candidateList]:checked').val();
+        return true;
+      } else {
+        return false;
+      }
     }
 
   };
@@ -153,19 +186,56 @@ function startQuiz() {
 
   function cycleQuestions(q1, q2, fadeDelay) {
 
+    fadeDelay = 400;
+
     var oldQuestion = ".q" + q1;
     var newQuestion = ".q" + q2;
 
-    console.log('q1 out: ' + oldQuestion + " q2 in: " + newQuestion);
+    //console.log('q1 out: ' + oldQuestion + " q2 in: " + newQuestion);
 
     $(oldQuestion).slideUp(fadeDelay);
     setTimeout(function() {
-      $(newQuestion).fadeIn(fadeDelay);
-    }, fadeDelay * 2);
+      $(newQuestion).slideDown(fadeDelay);
+    }, fadeDelay + 50);
 
   };
 
 };
 
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
+
+// DOM Ready
+function setSlider(name) {
+ var el;
+ var labelDiv = '.' + name;
+
+ // Select all range inputs, watch for change
+ $("input[name='" + name + "']").change(function() {
+
+   // Cache this for efficiency
+   el = $(this);
+
+   // Measure attributes of the slider
+   sliderWidth = el.width();
+   max = el.attr('max');
+   min = el.attr('min');
+   step = el.attr('step');
+   labelWidth = sliderWidth / ((max - min) * step);
+
+
+
+
+   for (var i = min; i < max; i += step) {
+     $(labelDiv).append('div class=sliderLabel style="width: ' +
+    labelWidth + 'px;">' + i.toString() + "</div>");
+   }
+
+ })
+ // Fake a change to position bubble at page load
+ .trigger('change');
+};
 
 startQuiz();
