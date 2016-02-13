@@ -9,13 +9,11 @@ var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var userInfo = require(__dirname + '/models/responses');
-//mongoose.connect('mongodb://localhost:27017/responses');
-mongoose.connect('mongodb://cheezily:pathos655@ds061395.mongolab.com:61395/primarystudy1')
+mongoose.connect(process.env.PROD_MONGODB);
 
 
 //define routes
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var idCheck = require('./routes/idCheck');
 var dbpull = require('./routes/dbpull');
 
