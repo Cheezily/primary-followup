@@ -5,7 +5,7 @@ var router = express.Router();
 var responses = require('../models/responses');
 var json2csv = require('json2csv');
 var warning = '';
-var password = "Jinxy";
+var password = process.env.DBPULL_PW;
 var fields = ['id', 'userID', 'traits1', 'traits2', 'traits3', 'issues', 'clarity',
   'prefer', 'enthusiasm', 'peers', 'peer_enthusiasm', 'hillary_clinton_ideology',
   'bernie_sanders_ideology', 'jeb_bush_ideology', 'ted_cruz_ideology',
