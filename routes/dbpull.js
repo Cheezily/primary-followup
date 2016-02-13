@@ -41,7 +41,7 @@ router.post('/', function(req, res, next) {
           //then clears out the contents of the temp file
 
           res.download('./CSVoutput/dbDump.csv', 'output.csv', function () {
-            fs.writeFile('./CSVoutput/dbDump.csv', "", function(err) {
+            fs.unlinkSync('./CSVoutput/dbDump.csv', "", function(err) {
               if (err) throw err;
             });
           });
