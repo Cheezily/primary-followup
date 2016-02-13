@@ -6,10 +6,12 @@ var responses = require('../models/responses');
 var json2csv = require('json2csv');
 var warning = '';
 
-
-var password = process.env.DBPULL_PW;
-
-password = "Jinxy";
+var password;
+if (process.env.DBPULL_PW) {
+  password = process.env.DBPULL_PW;
+} else {
+  password = 'password';
+}
 
 var fields = ['id', 'userID', 'traits1', 'traits2', 'traits3', 'issues', 'clarity',
   'prefer', 'enthusiasm', 'peers', 'peer_enthusiasm', 'hillary_clinton_ideology',
@@ -46,9 +48,13 @@ router.post('/', function(req, res, next) {
           //then clears out the contents of the temp file
 
           res.download('./CSVoutput/dbDump.csv', 'output.csv', function () {
-            fs.unlinkSync('./CSVoutput/dbDump.csv', function(err) {
-              if (err) throw err;
-            });
+            setTimeout(function() {
+              fs.unlinkSync('./CSVoutput/dbDump.csv', function(err) {
+                if (err) throw err;
+                console.log('csv deleted');
+              });
+            },10000);
+
           });
         });
       });
