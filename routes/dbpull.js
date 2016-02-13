@@ -48,7 +48,7 @@ router.post('/', function(req, res, next) {
           //then clears out the contents of the temp file
 
           res.download('./CSVoutput/dbDump.csv', 'output.csv', function () {
-            fs.unlinkSync('./CSVoutput/dbDump.csv');
+            fs.rename('./CSVoutput/dbDump.csv', './CSVoutput/dbDump.bak');
           });
         });
       });
