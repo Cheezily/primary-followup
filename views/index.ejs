@@ -33,14 +33,17 @@
 
         <div class='question q4'>
 
-          <h3>On a scale on 1 to 10, with 10 being very clear and 1 being
-          very unclear, how clear do you believe <span id='faveCandidate'>
-          </span>'s stance on <span id='faveIssue'></span> is?</h3>
+          <h3>On a scale on 1 to 10, with <span class='textLabel'>10</span>
+            being very <span class='textLabel'>clear</span> and
+            <span class='textLabel'>1</span> being very
+            <span class='textLabel'>unclear</span>, how clear do you believe
+            <span class='faveCandidate textLabel'>'s</span> stance on
+          <span class='faveIssue textLabel'></span> is?</h3>
 
           <div class='claritySlider sliderLabelContainer'></div><br />
           <div class='clearFloat'></div>
           <input type="range" name="claritySlider" id='claritySlider'
-            class='slider' min="0" max="10" step="1">
+            class='slider' min="1" max="10" step="1">
 
           <div style="width: 500px; margin: 8px auto;">
             <div style="float: left; width: 250px; text-align: left;">
@@ -53,12 +56,213 @@
           <div class='clearFloat'></div>
         </div>
 
+        <div class='question q5'>
 
-<!--
-        <div class='testSlider sliderLabelContainer'></div>
-        <input type="range" name="testSlider" id='testSlider' class='slider'
-        min="0" max="10" step="1">
--->
+          <h3>On a scale of 1 to 10 with
+            <span class='textLabel'>10</span> being very
+            <span class='textLabel'>enthusiastic</span> and
+            <span class='textLabel'>1</span> being very
+            <span class='textLabel'>unenthusiastic</span>, how do you feel
+            about <span class='faveCandidate textLabel'>'s</span>
+            candidacy?</h3>
+
+          <div class='enthusiasmSlider sliderLabelContainer'></div><br />
+          <div class='clearFloat'></div>
+          <input type="range" name="enthusiasmSlider" id='enthusiasmSlider'
+            class='slider' min="1" max="10" step="1">
+
+          <div style="width: 500px; margin: 8px auto;">
+            <div style="float: left; width: 250px; text-align: left;">
+              Very Unenthusiastic
+            </div>
+            <div style="float: left; width: 250px; text-align: right;">
+              Very Enthusiastic
+            </div>
+          </div>
+          <div class='clearFloat'></div>
+        </div>
+
+        <div class='question q6'>
+          <h3>Are any of your friends or family also supporting
+          <span class='faveCandidate textLabel'></span>?</h3>
+          <input type='radio' name='peers' value='1' id='peerYes'/>
+          <label for="peerYes">Yes</label><br />
+          <input type='radio' name='peers' value='2' id='peerNo'/>
+          <label for="peerNo">No</label>
+        </div>
+
+        <div class='question q7'>
+
+          <h3>On a scale of 1 to 10 with
+            <span class='textLabel'>10</span> being very
+            <span class='textLabel'>enthusiastic</span> and
+            <span class='textLabel'>1</span> being very
+            <span class='textLabel'>unenthusiastic</span>, how
+            enthusiastic are your friends/family about
+            <span class='faveCandidate textLabel'>'s</span>
+            candidacy?</h3>
+
+          <div class='peerEnthusiasmSlider sliderLabelContainer'></div><br />
+          <div class='clearFloat'></div>
+          <input type="range" name="peerEnthusiasmSlider" id='peerEnthusiasmSlider'
+            class='slider' min="1" max="10" step="1">
+
+          <div style="width: 500px; margin: 8px auto;">
+            <div style="float: left; width: 250px; text-align: left;">
+              Very Unenthusiastic
+            </div>
+            <div style="float: left; width: 250px; text-align: right;">
+              Very Enthusiastic
+            </div>
+          </div>
+          <div class='clearFloat'></div>
+        </div>
+
+        <div class='question q8'>
+          <h3>Please rate the candidates on where you think their ideology
+          falls on a spectrum from <span class='textLabel'>1</span> being
+          <span class='textLabel'>Very Liberal</span> to
+          <span class='textLabel'>10</span> being
+          <span class='textLabel'>Very Conservative</span>
+          </h3>
+
+          <div style='height: 30px; width: 127px;
+          float: left;'></div>
+          <div style='height: 30px; width: 535px;
+          float: left;'
+
+          id='ideologyLabels'></div>
+          <div class='clearFloat'></div>
+
+          <div class='q8List'></div>
+
+          <div style='width: 140px; height: 30px; float: left;
+          margin-top: -8px; border: 1px solid #ccc'></div>
+          <div style='width: 250px; float: left; text-align: left;'>
+            Very Liberal
+          </div>
+          <div style='width: 250px; float: left; text-align: right;'>
+            Very Conservative
+          </div>
+          <div class='clearFloat'></div>
+        </div>
+
+        <div class='question q9'>
+          <h3>Are you:</h3>
+          <input type='radio' name='gender' value='1' id='male'/>
+          <label for="male">Male</label><br />
+          <input type='radio' name='gender' value='2' id='female'/>
+          <label for="female">Female</label>
+        </div>
+
+        <div class='question q10'>
+          <h3>Generally, do you consider yourself a:</h3>
+          <input type='radio' name='pid' value='1' id='pidDemocrat'/>
+          <label for="pidDemocrat">Democrat</label><br />
+          <input type='radio' name='pid' value='2' id='pidRepublican'/>
+          <label for="pidRepublican">Republican</label><br />
+          <input type='radio' name='pid' value='3' id='pidIndependent'/>
+          <label for="pidIndependent">Independent</label><br />
+          <input type='radio' name='pid' value='4' id='pidOther'/>
+          <label for="pidOther">Other</label>
+        </div>
+
+        <div class='question q11'>
+          <h3>This March, which primary do you intend to vote in?</h3>
+          <input type='radio' name='primary' value='1' id='primaryDemocrat'/>
+          <label for="primaryDemocrat">Democrat</label><br />
+          <input type='radio' name='primary' value='2' id='primaryRepublican'/>
+          <label for="primaryRepublican">Republican</label><br />
+          <input type='radio' name='primary' value='3' id='primaryUnknown'/>
+          <label for="primaryUnknown">I don't know yet</label><br />
+          <input type='radio' name='primary' value='4' id='primaryNone'/>
+          <label for="primaryNone">I do not plan to vote in the primary</label>
+        </div>
+
+        <div class='question q12'>
+
+          <h3>Generally, on a scale of <span class='textLabel'>1</span>
+          representing <span class='textLabel'>very liberal</span> and
+          <span class='textLabel'>10</span> representing
+          <span class='textLabel'>very conservative</span>, how would
+          you rate <span class='textLabel'>yourself?</span>
+          </h3><br />
+
+          <div class='yourIdeologySlider sliderLabelContainer'></div><br />
+          <div class='clearFloat'></div>
+          <input type="range" name="yourIdeologySlider" id='yourIdeologySlider'
+            class='slider' min="1" max="10" step="1">
+
+          <div style="width: 500px; margin: 8px auto;">
+            <div style="float: left; width: 167px; text-align: left;">
+              Very Liberal
+            </div>
+            <div style="float: left; width: 166px; text-align: center;">
+              Moderate
+            </div>
+            <div style="float: left; width: 167px; text-align: right;">
+              Very Conservative
+            </div>
+          </div>
+          <div class='clearFloat'></div>
+        </div>
+
+        <div class='question q13'>
+          <h3>Are you:</h3>
+          <input type='radio' name='race' value='1' id='raceWhite'/>
+          <label for="raceWhite">White</label><br />
+          <input type='radio' name='race' value='2' id='raceBlack'/>
+          <label for="raceBlack">Black</label><br />
+          <input type='radio' name='race' value='3' id='raceHispanic'/>
+          <label for="raceHispanic">Hispanic</label><br />
+          <input type='radio' name='race' value='4' id='raceAsian'/>
+          <label for="raceAsian">Asian</label><br />
+          <input type='radio' name='race' value='5' id='raceOther'/>
+          <label for="raceOther">Other</label>
+        </div>
+
+        <div class='question q14'>
+          <h3>What is your family's household income?</h3>
+          <input type='radio' name='income' value='1' id='below10k'/>
+          <label for="below10k">Less than $10,000</label><br />
+          <input type='radio' name='income' value='2' id='10-20'/>
+          <label for="10-20">$10,000 to $19,999</label><br />
+          <input type='radio' name='income' value='3' id='20-30'/>
+          <label for="20-30">$20,000 to $29,999</label><br />
+          <input type='radio' name='income' value='4' id='30-40'/>
+          <label for="30-40">$30,000 to $39,999</label><br />
+          <input type='radio' name='income' value='5' id='40-50'/>
+          <label for="40-50">$40,000 to $49,999</label><br />
+          <input type='radio' name='income' value='6' id='50-60'/>
+          <label for="50-60">$50,000 to $59,999</label><br />
+          <input type='radio' name='income' value='7' id='60-70'/>
+          <label for="60-70">$60,000 to $69,999</label><br />
+          <input type='radio' name='income' value='8' id='70-80'/>
+          <label for="70-80">$70,000 to $79,999</label><br />
+          <input type='radio' name='income' value='9' id='80-90'/>
+          <label for="80-90">$80,000 to $89,999</label><br />
+          <input type='radio' name='income' value='10' id='90-100'/>
+          <label for="90-100">$90,000 to $99,999</label><br />
+          <input type='radio' name='income' value='11' id='100-150'/>
+          <label for="100-150">$100,000 to $149,999</label><br />
+          <input type='radio' name='income' value='12' id='above150'/>
+          <label for="above150">$150,000 or above</label><br />
+        </div>
+
+        <div class='question q15'>
+          <h3>Thank you for your participation! </h3>
+          <span class='textLabel'>BE SURE TO WRITE DOWN THE
+          NUMBER LISTED BELOW!</span><br />
+          <div style="margin: 60px auto; font-size: 72px; color: darkred"
+          id="idOutput"></div>
+          It will be used in a second set of questions
+          later in the semester and is required for you to recieve
+          your extra credit for this exercise.</h3>
+
+
+
+        </div>
+
       </div>
 
       <div class='warning'></div>

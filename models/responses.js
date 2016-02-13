@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var responsesSchema = new Schema({
-  timeID: String,
+  userID: { type: String, required: true, unique: true },
   traits1: String,
   traits2: String,
   traits3: String,
@@ -12,6 +12,14 @@ var responsesSchema = new Schema({
   enthusiasm: String,
   peers: String,
   peer_enthusiasm: String,
+  hillary_clinton_ideology: String,
+  bernie_sanders_ideology: String,
+  jeb_bush_ideology: String,
+  ted_cruz_ideology: String,
+  donald_trump_ideology: String,
+  john_kasich_ideology: String,
+  ben_carson_ideology: String,
+  marco_rubio_ideology: String,
   gender: String,
   pid: String,
   primary: String,
