@@ -489,6 +489,7 @@ function startQuiz() {
       success: function(response) {
         $('.warning').text(response.success);
         $('#idOutput').text(responses['userID']);
+        $('.next').hide();
       },
       dataType: 'json'
     });

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+
+</head>
+<body>
+<%- include('header') %>
+<div class="container" style="display: block;">
+    <form action="/dbpull" method="post">
+        <label for="pw">Enter password: </label>
+            <input type="password" class='pw' name="pw"><br>
+        <input class='pwSubmit' type="submit">
+    </form>
+    <span class="warning"><%= warning %></span>
+</div>
+
+<script type="text/javascript">
+    //clears the pw field in case the window is left open
+    $('.pwSubmit').click(function(e) {
+        setTimeout(function () {
+            setTimeout(function () {
+                $('.pw').val('');
+            },1000);
+        });
+    });
+</script>
+</body>
+</html>
