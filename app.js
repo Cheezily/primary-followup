@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var userInfo = require(__dirname + '/models/responses');
-mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGOLAB_URI | 'mongodb://localhost:27017/responses');
 
 
 //define routes
@@ -47,6 +47,7 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
+/*
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -56,6 +57,7 @@ if (app.get('env') === 'development') {
     });
   });
 }
+*/
 
 // production error handler
 // no stacktraces leaked to user
