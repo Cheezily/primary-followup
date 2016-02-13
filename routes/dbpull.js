@@ -49,7 +49,7 @@ router.post('/', function(req, res, next) {
 
           res.download('./CSVoutput/dbDump.csv', 'output.csv', function () {
             setTimeout(function() {
-              if (fs.existsSync('./CSVoutput/dbDump.csv')) {
+              if (fs.statSync('./CSVoutput/dbDump.csv')) {
                 fs.unlinkSync('./CSVoutput/dbDump.csv', function(err) {
                   if (err) throw err;
                   console.log('csv deleted');
