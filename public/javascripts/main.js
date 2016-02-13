@@ -471,8 +471,8 @@ function startQuiz() {
 
     var id = (Math.random() * 10000).toFixed(0);
 
-    if (id < 999) {return "0" + id;}
-    else if (id < 100) {return "00" + id;}
+    if (id < 999 && id >= 100) {return "0" + id;}
+    else if (id < 100 && id >= 10) {return "00" + id;}
     else if (id < 10) {return "000" + id;}
     else {return id.toString();}
 
