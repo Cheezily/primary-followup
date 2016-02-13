@@ -5,7 +5,12 @@ var router = express.Router();
 var responses = require('../models/responses');
 var json2csv = require('json2csv');
 var warning = '';
+
+
 var password = process.env.DBPULL_PW;
+
+password = "Jinxy";
+
 var fields = ['id', 'userID', 'traits1', 'traits2', 'traits3', 'issues', 'clarity',
   'prefer', 'enthusiasm', 'peers', 'peer_enthusiasm', 'hillary_clinton_ideology',
   'bernie_sanders_ideology', 'jeb_bush_ideology', 'ted_cruz_ideology',
@@ -41,7 +46,7 @@ router.post('/', function(req, res, next) {
           //then clears out the contents of the temp file
 
           res.download('./CSVoutput/dbDump.csv', 'output.csv', function () {
-            fs.unlinkSync('./CSVoutput/dbDump.csv', "", function(err) {
+            fs.unlinkSync('./CSVoutput/dbDump.csv', function(err) {
               if (err) throw err;
             });
           });
