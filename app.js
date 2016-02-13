@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var userInfo = require(__dirname + '/models/responses');
-mongoose.connect(process.env.PROD_MONGODB);
+mongoose.connect(process.env.MONGOLAB_URI);
 
 
 //define routes
