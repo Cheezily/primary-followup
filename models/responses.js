@@ -14,7 +14,6 @@ var responsesSchema = new Schema({
   peer_enthusiasm: String,
   hillary_clinton_ideology: String,
   bernie_sanders_ideology: String,
-  jeb_bush_ideology: String,
   ted_cruz_ideology: String,
   donald_trump_ideology: String,
   john_kasich_ideology: String,

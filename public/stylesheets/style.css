@@ -12,6 +12,7 @@ body {
   min-height: 300px;
   color: #444;
   font-size: 18px;
+  overflow: hidden;
 }
 
 a {
@@ -28,7 +29,12 @@ a {
   box-shadow: -5px 5px 8px -4px;
 }
 
+#consentButton {
+  margin: 0px;
+}
+
 .container {
+  display: none;
   box-sizing: border-box;
   background: #ccc;
   width: 760px;
@@ -47,6 +53,21 @@ a {
   margin: -5px auto;
   padding: 0;
   border: 1px solid #ccc;
+}
+
+.consentContainer {
+  background: #fff;
+  margin: 0 auto;
+  padding: 30px 50px;
+  width: 860px;
+  height: 650px;
+  border: 4px solid #aaa;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.consent {
+  font-size: 16px;
 }
 
 .warning {

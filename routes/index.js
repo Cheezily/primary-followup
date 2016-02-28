@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
     };
 
   var responsesSubmitted = new responses({
-    userID: req.body.userID,
+    userID: "'" + req.body.userID,
     traits1: req.body.trait1,
     traits2: req.body.trait2,
     traits3: req.body.trait3,
@@ -30,7 +30,6 @@ router.post('/', function(req, res, next) {
     peer_enthusiasm: req.body.peer_enthusiasm,
     hillary_clinton_ideology: req.body.hillary_clinton_ideology,
     bernie_sanders_ideology: req.body.bernie_sanders_ideology,
-    jeb_bush_ideology: req.body.jeb_bush_ideology,
     ted_cruz_ideology: req.body.ted_cruz_ideology,
     donald_trump_ideology: req.body.donald_trump_ideology,
     john_kasich_ideology: req.body.john_kasich_ideology,

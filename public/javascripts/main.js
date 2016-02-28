@@ -3,13 +3,12 @@ function startQuiz() {
   var userID;
 
   var candidates = [{id: 1, display: 'Hillary Clinton'},
-    {id: 2, display: 'Bernie Sanders'}, {id: 3, display: 'Jeb Bush'},
-    {id: 4, display: 'Ted Cruz'}, {id: 5, display: 'Donald Trump'},
-    {id: 6, display: 'John Kasich'}, {id: 7, display: 'Ben Carson'},
-    {id: 8, display: 'Marco Rubio'}];
+    {id: 2, display: 'Bernie Sanders'}, {id: 3, display: 'Ted Cruz'},
+    {id: 4, display: 'Donald Trump'}, {id: 5, display: 'John Kasich'},
+    {id: 6, display: 'Ben Carson'}, {id: 7, display: 'Marco Rubio'}];
 
   var traits = [{id: 1, display: 'Honest'}, {id: 2, display: 'Trustworthy'},
-    {id: 3, display: 'Experienced'}, {id: 4, display: 'Intellegent'},
+    {id: 3, display: 'Experienced'}, {id: 4, display: 'Intelligent'},
     {id: 5, display: 'Principled'}, {id: 6, display: 'Pragmatic'},
     {id: 7, display: 'Idealistic'}, {id: 8, display: 'Passionate'},
     {id: 9, display: 'Outsider'}, {id: 10, display: 'Compassionate'},
@@ -27,6 +26,12 @@ function startQuiz() {
   var responses = {};
   var questionNumber = 0; //used as a step counter for the whole script
   var fadeDelay = 300; //time in ms for questions to transition
+
+  $('#consentButton').click(function() {
+    $('#consentButton').hide();
+    $('.container').show();
+  });
+
 
   $('.next').click(function() {
 
