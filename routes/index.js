@@ -40,7 +40,8 @@ router.post('/', function(req, res, next) {
     primary: req.body.primary,
     ideology: req.body.ideology,
     race: req.body.race,
-    income: req.body.income
+    income: req.body.income,
+    time: req.body.time
   });
 
   responsesSubmitted.save(function(err) {

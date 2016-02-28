@@ -18,7 +18,7 @@ var fields = ['userID', 'traits1', 'traits2', 'traits3', 'issues', 'clarity',
   'bernie_sanders_ideology', 'ted_cruz_ideology',
   'donald_trump_ideology', 'john_kasich_ideology', 'ben_carson_ideology',
   'marco_rubio_ideology', 'gender', 'pid', 'primary',
-  'ideology', 'race', 'income'];
+  'ideology', 'race', 'income', 'time'];
 
 
 /* GET dbpull page. */

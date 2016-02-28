@@ -24,7 +24,8 @@ var responsesSchema = new Schema({
   primary: String,
   ideology: String,
   race: String,
-  income: String
+  income: String,
+  time: String
 });
 
 var responses = mongoose.model('responses', responsesSchema);

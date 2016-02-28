@@ -451,6 +451,7 @@ function startQuiz() {
 
   function setID(id) {
     responses['userID'] = id;
+    responses['time'] = new Date();
     console.log('your id is: ' + responses['userID']);
     submitData(responses);
   }
