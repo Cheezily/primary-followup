@@ -463,23 +463,9 @@ function startQuiz() {
 
   function makeNewId() {
 
-    /* I don't think 5 digits will be needed.
-    //4 should work just fine
-    var id = (Math.random() * 100000).toFixed(0);
-
-    if (id < 10000 && id > 999) {return "0" + id;}
-    else if (id < 999) {return "00" + id;}
-    else if (id < 100) {return "000" + id;}
-    else if (id < 10) {return "0000" + id;}
-    else {return id.toString();}
-    */
-
-    var id = (Math.random() * 10000).toFixed(0);
-
-    if (id < 999 && id >= 100) {return "0" + id;}
-    else if (id < 100 && id >= 10) {return "00" + id;}
-    else if (id < 10) {return "000" + id;}
-    else {return id.toString();}
+    //id needs to be a 4 digit number that's greater than 1000
+    var id = (Math.random() * (9999 - 1000) + 1000).toFixed(0);
+    return id.toString();
 
   }
 
