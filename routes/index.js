@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
     };
 
   var responsesSubmitted = new responses({
-    userID: "'" + req.body.userID,
+    userID: req.body.userID,
     traits1: req.body.trait1,
     traits2: req.body.trait2,
     traits3: req.body.trait3,
