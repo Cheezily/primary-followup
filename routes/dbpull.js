@@ -13,7 +13,7 @@ if (process.env.DBPULL_PW) {
   password = 'password';
 }
 
-var fields = ['id', 'userID', 'traits1', 'traits2', 'traits3', 'issues', 'clarity',
+var fields = ['userID', 'traits1', 'traits2', 'traits3', 'issues', 'clarity',
   'prefer', 'enthusiasm', 'peers', 'peer_enthusiasm', 'hillary_clinton_ideology',
   'bernie_sanders_ideology', 'ted_cruz_ideology',
   'donald_trump_ideology', 'john_kasich_ideology', 'ben_carson_ideology',
