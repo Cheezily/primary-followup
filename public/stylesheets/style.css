@@ -12,7 +12,6 @@ body {
   min-height: 300px;
   color: #444;
   font-size: 18px;
-  overflow: hidden;
 }
 
 a {
@@ -30,7 +29,8 @@ a {
 }
 
 #consentButton {
-  margin: 0px;
+  margin: 0px 20px;
+  display: inline;
 }
 
 .container {
