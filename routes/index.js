@@ -48,13 +48,14 @@ router.post('/', function(req, res, next) {
   responsesSubmitted.save(function(err) {
       if (err) throw err;
 
-      //res.send(successResult);
-      res.redirect('/finished?id=' + req.body.userID);
+      //res.send({url: '/finished?id=' + id});
+      res.send({url: "/finished?id=" + req.body.userID});
       console.log(JSON.stringify(req.body));
       console.log("Saved the user info!");
     });
   }
 });
+
 
 /*
 router('/idcheck', function(req, res, next) {

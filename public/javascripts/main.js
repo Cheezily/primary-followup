@@ -515,9 +515,11 @@ function startQuiz() {
       url: '/',
       data: dataOut,
       success: function(response) {
-        $('.warning').text(response.success);
-        $('#idOutput').text(responses['userID']);
+        //$('.warning').text(response.success);
+        //$('#idOutput').text(window.location.href + response);
         $('.next').hide();
+        //console.log('location: ' + window.location.href + response);
+        window.location.replace(response.url);
       },
       dataType: 'json'
     });
