@@ -94,22 +94,26 @@ function startQuiz() {
 
       $('.faveCandidate').prepend(faveCand);
       $('.faveIssue').text(faveIssue.toLowerCase());
-      setSlider('claritySlider');
+      setSlider('chanceSlider', '%');
     }
 
     if (questionAsked === 5) {
-      setSlider('enthusiasmSlider');
+      setSlider('claritySlider');
     }
 
     if (questionAsked === 6) {
-      //This is a simple question. No options required.
+      setSlider('enthusiasmSlider');
     }
 
     if (questionAsked === 7) {
-      setSlider('peerEnthusiasmSlider');
+      //This is a simple question. No options required.
     }
 
     if (questionAsked === 8) {
+      setSlider('peerEnthusiasmSlider');
+    }
+
+    if (questionAsked === 9) {
 
       //display one label for all sliders
       var sliderWidth = 520;
@@ -125,7 +129,8 @@ function startQuiz() {
         ' text-align: center;">' + i.toString() + "</div>");
       }
 
-      //display a list of the candidates and a slider for each
+      /*
+      //display a list of the candidates and a slider for each in sequential order
       ideologyHtml = '';
       for (var i = 0; i < candidates.length; i++) {
         var candDisplay = candidates[i].display;
@@ -139,12 +144,28 @@ function startQuiz() {
         'name="' + candName + '" style="width: 500px; padding-top: 8px;">' +
         '<div class="clearFloat"></div>'
       }
+      */
 
-      $('.q8List').append(ideologyHtml);
-    }
+      //display a list of the candidates and a slider for each in random order
+      ideologyHtml = '';
 
-    if (questionAsked === 9) {
-      //This is a simple question. No options required.
+      var candListForSliders = candidates.slice(0);
+      var randomCandListForSliders = randomize(candListForSliders);
+
+      for (var i = 0; i < randomCandListForSliders.length; i++) {
+        var candDisplay = randomCandListForSliders[i].display;
+        //mimic the format of the variable name that will be
+        //collected with candName
+        var candName = candDisplay.toLowerCase().replace(/\s/g,'_') + "_ideology";
+
+        ideologyHtml += '<div style="height: 30px; width: 140px; float: left;' +
+        'margin: 4px 0;">' + candDisplay +
+        '</div><input type="range" min="1" max="10" class="ideologyInput" ' +
+        'name="' + candName + '" style="width: 500px; padding-top: 8px;">' +
+        '<div class="clearFloat"></div>'
+      }
+
+      $('.q9List').append(ideologyHtml);
     }
 
     if (questionAsked === 10) {
@@ -156,11 +177,11 @@ function startQuiz() {
     }
 
     if (questionAsked === 12) {
-      setSlider('yourIdeologySlider');
+      //This is a simple question. No options required.
     }
 
     if (questionAsked === 13) {
-      //This is a simple question. No options required.
+      setSlider('yourIdeologySlider');
     }
 
     if (questionAsked === 14) {
@@ -168,7 +189,11 @@ function startQuiz() {
     }
 
     if (questionAsked === 15) {
+      //This is a simple question. No options required.
+    }
 
+    if (questionAsked === 16) {
+      //This is a simple question. No options required.
     }
 
   };
@@ -242,28 +267,39 @@ function startQuiz() {
     }
 
     if (questionAnswered === 4) {
-      if ($('input[name=claritySlider]').val()) {
-        responses['clarity'] = $('input[name=claritySlider]').val();
-        console.log('clarity: ' + responses['clarity']);
+      if (!$('input[name=chanceSlider]').hasClass('notClicked')) {
+        responses['chance'] = $('input[name=chanceSlider]').val();
+        console.log('chance: ' + responses['chance']);
         return true;
       } else {
-        $('.warning').text('Please enter a value.');
+        $('.warning').text('Please click on the orange slider and select a value.');
         return false;
       }
     }
 
     if (questionAnswered === 5) {
-      if ($('input[name=enthusiasmSlider]').val()) {
-        responses['enthusiasm'] = $('input[name=enthusiasmSlider]').val();
-        console.log('enthusiasm: ' + responses['enthusiasm']);
+      if (!$('input[name=claritySlider]').hasClass('notClicked')) {
+        responses['clarity'] = $('input[name=claritySlider]').val();
+        console.log('clarity: ' + responses['clarity']);
         return true;
       } else {
-        $('.warning').text('Please enter a value.');
+        $('.warning').text('Please click on the orange slider and select a value.');
         return false;
       }
     }
 
     if (questionAnswered === 6) {
+      if (!$('input[name=enthusiasmSlider]').hasClass('notClicked')) {
+        responses['enthusiasm'] = $('input[name=enthusiasmSlider]').val();
+        console.log('enthusiasm: ' + responses['enthusiasm']);
+        return true;
+      } else {
+        $('.warning').text('Please click on the orange slider and select a value.');
+        return false;
+      }
+    }
+
+    if (questionAnswered === 7) {
       if ($('input[name=peers]:checked').val()) {
         responses['peers'] = $('input[name=peers]:checked').val();
         if (responses['peers'] === "2") {
@@ -281,18 +317,18 @@ function startQuiz() {
       }
     }
 
-    if (questionAnswered === 7) {
-      if ($('input[name=peerEnthusiasmSlider]').val()) {
+    if (questionAnswered === 8) {
+      if (!$('input[name=peerEnthusiasmSlider]').hasClass('notClicked')) {
         responses['peer_enthusiasm'] =
           $('input[name=peerEnthusiasmSlider]').val();
         return true;
       } else {
-        $('.warning').text("Please select an option to continue.");
+        $('.warning').text('Please click on the orange slider and select a value.');
         return false;
       }
     }
 
-    if (questionAnswered === 8) {
+    if (questionAnswered === 9) {
       //store the response for each candidate in its own variable
       //with a name that matches the field in the database once submitted
       $('.ideologyInput').each(function() {
@@ -302,7 +338,7 @@ function startQuiz() {
       return true;
     }
 
-    if (questionAnswered === 9) {
+    if (questionAnswered === 10) {
       if ($('input[name=gender]:checked').val()) {
         responses["gender"] = $('input[name=gender]:checked').val();
         return true;
@@ -312,7 +348,7 @@ function startQuiz() {
       }
     }
 
-    if (questionAnswered === 10) {
+    if (questionAnswered === 11) {
       if ($('input[name=pid]:checked').val()) {
         responses["pid"] = $('input[name=pid]:checked').val();
         return true;
@@ -322,7 +358,7 @@ function startQuiz() {
       }
     }
 
-    if (questionAnswered === 11) {
+    if (questionAnswered === 12) {
       if ($('input[name=primary]:checked').val()) {
         responses["primary"] = $('input[name=primary]:checked').val();
         return true;
@@ -332,18 +368,18 @@ function startQuiz() {
       }
     }
 
-    if (questionAnswered === 12) {
-      if ($('input[name=yourIdeologySlider]').val()) {
+    if (questionAnswered === 13) {
+      if (!$('input[name=yourIdeologySlider]').hasClass('notClicked')) {
         responses['ideology'] =
           $('input[name=yourIdeologySlider]').val();
         return true;
       } else {
-        $('.warning').text("Please select an option to continue.");
+        $('.warning').text('Please click on the orange slider and select a value.');
         return false;
       }
     }
 
-    if (questionAnswered === 13) {
+    if (questionAnswered === 14) {
       if ($('input[name=race]:checked').val()) {
         responses["race"] = $('input[name=race]:checked').val();
         return true;
@@ -353,7 +389,7 @@ function startQuiz() {
       }
     }
 
-    if (questionAnswered === 14) {
+    if (questionAnswered === 15) {
       if ($('input[name=income]:checked').val()) {
         responses["income"] = $('input[name=income]:checked').val();
 
@@ -489,14 +525,33 @@ function startQuiz() {
 
   ////////////////////////////////////////////////////////////////
   //sets up the labels on the slider whose class name is passed in
-  function setSlider(name) {
+  function setSlider(name, suffix) {
 
    var slider;
    var labelDiv = '.' + name;
    var displayed = false;
+   if (!suffix) {
+     var suffix = '';
+   }
+
+   //start with the label container hidden, but taking up full space
+   $(labelDiv).css({opacity: "0"});
+
+   //hides the at the start thumb to not influence participants with a default value
+   $("input[name='" + name + "']").addClass("noThumb");
+
+   //removes notClicked class to pass the question check and triggers
+   //a change to make the labels visible
+   $("input[name='" + name + "']").focus(function() {
+     $("input[name='" + name + "']").removeClass("noThumb");
+     $("input[name='" + name + "']").removeClass("notClicked");
+     $("input[name='" + name + "']").trigger("change");
+   });
 
    // Select all range inputs, watch for change
    $("input[name='" + name + "']").change(function() {
+
+     $("input[name='" + name + "']").removeClass("noThumb");
 
      // Cache this for efficiency
      slider = $(this);
@@ -506,7 +561,7 @@ function startQuiz() {
      max = Number(slider.attr('max'));
      min = Number(slider.attr('min'));
      step = Number(slider.attr('step'));
-     labelWidth = sliderWidth / ((max - min) * step);
+     labelWidth = sliderWidth / ((max - min) / step);
 
   /*
      console.log('sliderWidth: ' + sliderWidth);
@@ -524,11 +579,21 @@ function startQuiz() {
 
       for (var i = min; i <= max; i += step) {
 
+        /*
         $(labelDiv).append('<div class="sliderLabel" style="width: ' +
-        ((labelWidth * .97)) + 'px;" id="' + name + i + '">' + i.toString() + "<br>|</div>");
+        ((labelWidth * .97)) + 'px;" id="' + name + i + '">' + i.toString() +
+        suffix + "<br>|</div>");
+        */
+
+        $(labelDiv).append('<div class="sliderLabel" style="width: ' +
+        ((labelWidth * .97)) + 'px;" id="' + name + i + '">' + i.toString() +
+        suffix + "</div>");
       }
       displayed = true;
 
+      //shows the labels now that they're added to the container div
+      $(labelDiv).animate({opacity: "1"}, 300);
+      $("." + name + "UnderLabel").fadeIn(300);
     }
 
      //highlights the label that the slider is on
@@ -545,7 +610,7 @@ function startQuiz() {
 
    })
    // fake change at page load
-   .trigger('change');
+   //.trigger('change');
   };
 
 };

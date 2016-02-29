@@ -7,6 +7,7 @@ var responsesSchema = new Schema({
   traits2: String,
   traits3: String,
   issues: String,
+  chance: String,
   clarity: String,
   prefer: String,
   enthusiasm: String,

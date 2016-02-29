@@ -23,6 +23,7 @@ router.post('/', function(req, res, next) {
     traits2: req.body.trait2,
     traits3: req.body.trait3,
     issues: req.body.issues,
+    chance: req.body.chance,
     clarity: req.body.clarity,
     prefer: req.body.prefer,
     enthusiasm: req.body.enthusiasm,

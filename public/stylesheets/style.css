@@ -113,10 +113,12 @@ button:active {
 }
 
 .textLabel {
-  color: #a44;
+  color: #a66;
 }
 
-
+.underLabel {
+  display: none;
+}
 
 .clearFloat {
   clear: both;

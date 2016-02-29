@@ -44,8 +44,8 @@
         ISU IRB: 309-438-2528
         ResearchOffice@IllinoisState.edu
       </pre>
-      <p style="font-weight: bold; font-size: 24px;">Press Next if you wish to
-        continue</p>
+      <span style="font-weight: bold; font-size: 24px;">Press Next if you wish to
+        continue</span>
 
       <button id='consentButton' class="next">Next</button>
     </div>
@@ -73,19 +73,48 @@
 
         <div class='question q4'>
 
-          <h3>On a scale on 1 to 10, with <span class='textLabel'>10</span>
-            being very <span class='textLabel'>clear</span> and
-            <span class='textLabel'>1</span> being very
-            <span class='textLabel'>unclear</span>, how clear do you believe
-            <span class='faveCandidate textLabel'>'s</span> stance on
+          <h3>From 0% to 100%, what do you think
+            <span class='faveCandidate textLabel'>'s</span> chance of
+            winning thier party's nomination is?</h3>
+
+          <p><b>(Click somewhere along the orange slider to activate this
+            question)</b></p>
+
+          <div class='chanceSlider sliderLabelContainer'></div><br />
+          <div class='clearFloat'></div>
+          <input type="range" name="chanceSlider" id='chanceSlider'
+            class='slider notClicked' min="0" max="100" step="10">
+
+          <div style="width: 500px; margin: 8px auto;"
+            class="chanceSliderUnderLabel underLabel">
+            <div style="float: left; width: 250px; text-align: left;">
+              0% chance
+            </div>
+            <div style="float: left; width: 250px; text-align: right;">
+              100% chance
+            </div>
+          </div>
+          <div class='clearFloat'></div>
+        </div>
+
+        <div class='question q5'>
+
+          <h3>On a scale on 1 to 10, with <span class='textLabel'>10
+            being very clear</span> and <span class='textLabel'>1 being very
+            unclear</span>, how clear do you believe
+            <span class='faveCandidate textLabel'>'s stance on </span>
           <span class='faveIssue textLabel'></span> is?</h3>
+
+          <p><b>(Click somewhere along the orange slider to activate this
+            question)</b></p>
 
           <div class='claritySlider sliderLabelContainer'></div><br />
           <div class='clearFloat'></div>
           <input type="range" name="claritySlider" id='claritySlider'
-            class='slider' min="1" max="10" step="1">
+            class='slider notClicked' min="1" max="10" step="1">
 
-          <div style="width: 500px; margin: 8px auto;">
+          <div style="width: 500px; margin: 8px auto;"
+            class="claritySliderUnderLabel underLabel">
             <div style="float: left; width: 250px; text-align: left;">
               Very Unclear
             </div>
@@ -96,22 +125,24 @@
           <div class='clearFloat'></div>
         </div>
 
-        <div class='question q5'>
+        <div class='question q6'>
 
           <h3>On a scale of 1 to 10 with
-            <span class='textLabel'>10</span> being very
-            <span class='textLabel'>enthusiastic</span> and
-            <span class='textLabel'>1</span> being very
-            <span class='textLabel'>unenthusiastic</span>, how do you feel
-            about <span class='faveCandidate textLabel'>'s</span>
+            <span class='textLabel'>10 being very enthusiastic</span> and
+            <span class='textLabel'>1 being very unenthusiastic</span>, how do you
+            feel about <span class='faveCandidate textLabel'>'s</span>
             candidacy?</h3>
+
+          <p><b>(Click somewhere along the orange slider to activate this
+            question)</b></p>
 
           <div class='enthusiasmSlider sliderLabelContainer'></div><br />
           <div class='clearFloat'></div>
           <input type="range" name="enthusiasmSlider" id='enthusiasmSlider'
-            class='slider' min="1" max="10" step="1">
+            class='slider notClicked' min="1" max="10" step="1">
 
-          <div style="width: 500px; margin: 8px auto;">
+          <div style="width: 500px; margin: 8px auto;"
+            class="enthusiasmSliderUnderLabel underLabel">
             <div style="float: left; width: 250px; text-align: left;">
               Very Unenthusiastic
             </div>
@@ -122,7 +153,7 @@
           <div class='clearFloat'></div>
         </div>
 
-        <div class='question q6'>
+        <div class='question q7'>
           <h3>Are any of your friends or family also supporting
           <span class='faveCandidate textLabel'></span>?</h3>
           <input type='radio' name='peers' value='1' id='peerYes'/>
@@ -131,7 +162,7 @@
           <label for="peerNo">No</label>
         </div>
 
-        <div class='question q7'>
+        <div class='question q8'>
 
           <h3>On a scale of 1 to 10 with
             <span class='textLabel'>10</span> being very
@@ -142,12 +173,16 @@
             <span class='faveCandidate textLabel'>'s</span>
             candidacy?</h3>
 
+          <p><b>(Click somewhere along the orange slider to activate this
+            question)</b></p>
+
           <div class='peerEnthusiasmSlider sliderLabelContainer'></div><br />
           <div class='clearFloat'></div>
           <input type="range" name="peerEnthusiasmSlider" id='peerEnthusiasmSlider'
-            class='slider' min="1" max="10" step="1">
+            class='slider notClicked' min="1" max="10" step="1">
 
-          <div style="width: 500px; margin: 8px auto;">
+          <div style="width: 500px; margin: 8px auto;"
+            class="peerEnthusiasmSliderUnderLabel underLabel">
             <div style="float: left; width: 250px; text-align: left;">
               Very Unenthusiastic
             </div>
@@ -158,7 +193,7 @@
           <div class='clearFloat'></div>
         </div>
 
-        <div class='question q8'>
+        <div class='question q9'>
           <h3>Please rate the candidates on where you think their ideology
           falls on a spectrum from <span class='textLabel'>1</span> being
           <span class='textLabel'>Very Liberal</span> to
@@ -174,7 +209,7 @@
           id='ideologyLabels'></div>
           <div class='clearFloat'></div>
 
-          <div class='q8List'></div>
+          <div class='q9List'></div>
 
           <div style='width: 140px; height: 30px; float: left;
           margin-top: -8px; border: 1px solid #ccc'></div>
@@ -187,7 +222,7 @@
           <div class='clearFloat'></div>
         </div>
 
-        <div class='question q9'>
+        <div class='question q10'>
           <h3>Are you:</h3>
           <input type='radio' name='gender' value='1' id='male'/>
           <label for="male">Male</label><br />
@@ -195,7 +230,7 @@
           <label for="female">Female</label>
         </div>
 
-        <div class='question q10'>
+        <div class='question q11'>
           <h3>Generally, do you consider yourself a:</h3>
           <input type='radio' name='pid' value='1' id='pidDemocrat'/>
           <label for="pidDemocrat">Democrat</label><br />
@@ -207,7 +242,7 @@
           <label for="pidOther">Other</label>
         </div>
 
-        <div class='question q11'>
+        <div class='question q12'>
           <h3>This March, which primary do you intend to vote in?</h3>
           <input type='radio' name='primary' value='1' id='primaryDemocrat'/>
           <label for="primaryDemocrat">Democrat</label><br />
@@ -219,21 +254,24 @@
           <label for="primaryNone">I do not plan to vote in the primary</label>
         </div>
 
-        <div class='question q12'>
+        <div class='question q13'>
 
-          <h3>Generally, on a scale of <span class='textLabel'>1</span>
-          representing <span class='textLabel'>very liberal</span> and
-          <span class='textLabel'>10</span> representing
-          <span class='textLabel'>very conservative</span>, how would
+          <h3>Generally, on a scale of <span class='textLabel'>1
+          representing very liberal</span> and
+          <span class='textLabel'>10 representing very conservative</span>, how would
           you rate <span class='textLabel'>yourself?</span>
           </h3><br />
+
+          <p><b>(Click somewhere along the orange slider to activate this
+            question)</b></p>
 
           <div class='yourIdeologySlider sliderLabelContainer'></div><br />
           <div class='clearFloat'></div>
           <input type="range" name="yourIdeologySlider" id='yourIdeologySlider'
-            class='slider' min="1" max="10" step="1">
+            class='slider notClicked' min="1" max="10" step="1">
 
-          <div style="width: 500px; margin: 8px auto;">
+          <div style="width: 500px; margin: 8px auto;"
+            class="yourIdeologySliderUnderLabel underLabel">
             <div style="float: left; width: 167px; text-align: left;">
               Very Liberal
             </div>
@@ -247,7 +285,7 @@
           <div class='clearFloat'></div>
         </div>
 
-        <div class='question q13'>
+        <div class='question q14'>
           <h3>Are you:</h3>
           <input type='radio' name='race' value='1' id='raceWhite'/>
           <label for="raceWhite">White</label><br />
@@ -261,7 +299,7 @@
           <label for="raceOther">Other</label>
         </div>
 
-        <div class='question q14'>
+        <div class='question q15'>
           <h3>What is your family's household income?</h3>
           <input type='radio' name='income' value='1' id='below10k'/>
           <label for="below10k">Less than $10,000</label><br />
@@ -289,7 +327,7 @@
           <label for="above150">$150,000 or above</label><br />
         </div>
 
-        <div class='question q15'>
+        <div class='question q16'>
           <h3>Thank you for your participation! </h3>
           <span class='textLabel'>BE SURE TO WRITE DOWN THE
           NUMBER LISTED BELOW!</span><br />
