@@ -16,6 +16,7 @@ mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/response
 var routes = require('./routes/index');
 var idCheck = require('./routes/idCheck');
 var dbpull = require('./routes/dbpull');
+var finished = require('./routes/finished');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/idcheck', idCheck);
 app.use('/dbpull', dbpull);
+app.use('/finished', finished);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
