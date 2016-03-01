@@ -7,7 +7,14 @@
     <%- include('header') %>
 
     <div class='welcome q0 consentContainer'>
-      <h3>Statement of Informed Consent</h3>
+      <h3 class='textLabel'>Statement of Informed Consent</h3>
+
+      <hr>
+      <span style="font-weight: bold; font-size: 24px;">Please review
+        and press Next if you wish to participate</span>
+      <button id='consentButton' class="next">Next</button>
+      <hr>
+
       <p class='consent'>Faculty and undergraduate students from the Department of Politics
         & Government at Illinois State University are conducting research
         whose purpose is to learn about the preferences of young voters in
@@ -45,10 +52,7 @@
         ResearchOffice@IllinoisState.edu
       </pre>
 
-      <span style="font-weight: bold; font-size: 24px;">Press Next if you wish to
-        continue</span>
 
-      <button id='consentButton' class="next">Next</button>
     </div>
 
     <div class="container">
@@ -78,8 +82,8 @@
             <span class='faveCandidate textLabel'>'s</span> chance of
             winning thier party's nomination is?</h3>
 
-          <p><b>(Click somewhere along the orange slider to activate this
-            question)</b></p>
+          <p><b>Click somewhere along the orange slider to activate this
+            question and then make your selection.</b></p>
 
           <div class='chanceSlider sliderLabelContainer'></div><br />
           <div class='clearFloat'></div>
@@ -106,8 +110,8 @@
             <span class='faveCandidate textLabel'>'s stance on </span>
           <span class='faveIssue textLabel'></span> is?</h3>
 
-          <p><b>(Click somewhere along the orange slider to activate this
-            question)</b></p>
+          <p><b>Click somewhere along the orange slider to activate this
+            question and then make your selection.</b></p>
 
           <div class='claritySlider sliderLabelContainer'></div><br />
           <div class='clearFloat'></div>
@@ -134,8 +138,8 @@
             feel about <span class='faveCandidate textLabel'>'s</span>
             candidacy?</h3>
 
-          <p><b>(Click somewhere along the orange slider to activate this
-            question)</b></p>
+          <p><b>Click somewhere along the orange slider to activate this
+            question and then make your selection.</b></p>
 
           <div class='enthusiasmSlider sliderLabelContainer'></div><br />
           <div class='clearFloat'></div>
@@ -174,8 +178,8 @@
             <span class='faveCandidate textLabel'>'s</span>
             candidacy?</h3>
 
-          <p><b>(Click somewhere along the orange slider to activate this
-            question)</b></p>
+          <p><b>Click somewhere along the orange slider to activate this
+            question and then make your selection.</b></p>
 
           <div class='peerEnthusiasmSlider sliderLabelContainer'></div><br />
           <div class='clearFloat'></div>
@@ -196,10 +200,9 @@
 
         <div class='question q9'>
           <h3>Please rate the candidates on where you think their ideology
-          falls on a spectrum from <span class='textLabel'>1</span> being
-          <span class='textLabel'>Very Liberal</span> to
-          <span class='textLabel'>10</span> being
-          <span class='textLabel'>Very Conservative</span>
+          falls on a spectrum from <span class='textLabel'>1 being
+          Very Liberal</span> to <span class='textLabel'>10 being
+          Very Conservative</span>
           </h3>
 
           <div style='height: 30px; width: 127px;
@@ -263,8 +266,8 @@
           you rate <span class='textLabel'>yourself?</span>
           </h3><br />
 
-          <p><b>(Click somewhere along the orange slider to activate this
-            question)</b></p>
+          <p><b>Click somewhere along the orange slider to activate this
+            question and then make your selection.</b></p>
 
           <div class='yourIdeologySlider sliderLabelContainer'></div><br />
           <div class='clearFloat'></div>
@@ -302,6 +305,7 @@
 
         <div class='question q15'>
           <h3>What is your family's household income?</h3>
+          <h2>Last Question!</h2>
           <input type='radio' name='income' value='1' id='below10k'/>
           <label for="below10k">Less than $10,000</label><br />
           <input type='radio' name='income' value='2' id='10-20'/>
@@ -328,24 +332,7 @@
           <label for="above150">$150,000 or above</label><br />
         </div>
 
-        <div class='question q16'>
-          <h3>Thank you for your participation! </h3>
-          <span class='textLabel'>BE SURE TO WRITE DOWN THE
-          NUMBER LISTED BELOW!</span><br />
-          <div style="margin: 60px auto; font-size: 72px; color: darkred"
-          id="idOutput"></div>
-          It will be used in a second set of questions
-          later in the semester and is required for you to recieve
-          your extra credit for this exercise.</h3>
-          <p>
-            You may now close this window.  Thank you again and have
-            a good day!
-          </p>
-
-
-
-
-        </div>
+        <div class='question q16'></div>
 
       </div>
 
