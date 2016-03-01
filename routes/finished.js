@@ -1,10 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
-var responses = require('../models/responses');
-
 
 router.get('/', function(req, res, next) {
   console.log('id: ' + req.query.id);
