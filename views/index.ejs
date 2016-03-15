@@ -60,66 +60,597 @@
       <div class='dialog'>
 
         <div class='question q1'>
-          <h3>Do you believe that it is important for a candidate to
-          be: (Check up to three)</h3>
-          <div class='q1List'></div>
+          <h3>Please enter the 4-digit number you were assigned in the first
+            batch of questions:</h3>
+          <input style="height: 40px; width: 120px; border: 2px solid #333;
+          text-align: center; font-size: 35px;"
+          type='text' name='userID' id='userID'>
+
         </div>
 
         <div class='question q2'>
-          <h3>What do you believe is the most important issue facing us today?
-          (Choose one)</h3>
-          <div class='q2List'></div>
+          <h3>Did you vote in the Illinois primary?</h3>
+          <input type='radio' name='vote2' id='vote2yes' value='1'>
+          <label for='vote2yes'>Yes</label><br>
+          <input type='radio' name='vote2' id='vote2no' value='2'>
+          <label for='vote2no'>No</label>
         </div>
 
         <div class='question q3'>
-          <h3>What candidate do you most support right now? (Choose one)</h3>
-          <div class='q3List'></div>
+          <h3>Did you vote in a different state's primary?</h3>
+          <input type='radio' name='vote_other' id='voteOtherYes' value='1'>
+          <label for='voteOtherYes'>Yes</label><br>
+          <input type='radio' name='vote_other' id='voteOtherNo' value='2'>
+          <label for='voteOtherNo'>No</label>
         </div>
 
         <div class='question q4'>
-
-          <h3>From 0% to 100%, what do you think
-            <span class='faveCandidate textLabel'>'s</span> chance of
-            winning their party's nomination is?</h3>
-
-          <p><b>Click somewhere along the orange slider to activate this
-            question and then make your selection.</b></p>
-
-          <div class='chanceSlider sliderLabelContainer'></div><br />
-          <div class='clearFloat'></div>
-          <input type="range" name="chanceSlider" id='chanceSlider'
-            class='slider notClicked' min="0" max="100" step="10">
-
-          <div style="width: 500px; margin: 8px auto;"
-            class="chanceSliderUnderLabel underLabel">
-            <div style="float: left; width: 250px; text-align: left;">
-              0% chance
-            </div>
-            <div style="float: left; width: 250px; text-align: right;">
-              100% chance
-            </div>
-          </div>
-          <div class='clearFloat'></div>
+          <h3>Which of the following best describes why you did not vote in the
+            Illinois primary election? (Choose one)</h3>
+            <input type='radio' name='why_no' id='why_no1' value='1'>
+            <label for='why_no1'>I didn't care.</label><br>
+            <input type='radio' name='why_no' id='why_no2' value='2'>
+            <label for='why_no2'>My vote wouldn't have mattered.</label><br>
+            <input type='radio' name='why_no' id='why_no3' value='3'>
+            <label for='why_no3'>My favorite candidate dropped out of the race.</label><br>
+            <input type='radio' name='why_no' id='why_no4' value='4'>
+            <label for='why_no4'>I was too busy.</label><br>
+            <input type='radio' name='why_no' id='why_no5' value='5'>
+            <label for='why_no5'>I'm not a US citizen.</label><br>
+            <input type='radio' name='why_no' id='why_no6' value='6'>
+            <label for='why_no6'>I don't know.</label><br>
         </div>
 
         <div class='question q5'>
+          <h3>Which of the following best describes why you voted in the
+            Illinois primary election? (Choose one)</h3>
+            <input type='radio' name='why_yes' id='why_yes1' value='1'>
+            <label for='why_yes1'>I wanted to support my favorite candidate.</label><br>
+            <input type='radio' name='why_yes' id='why_yes2' value='2'>
+            <label for='why_yes2'>I wanted to make sure an undesirable candidate
+              didn't win the primary.</label><br>
+            <input type='radio' name='why_yes' id='why_yes3' value='3'>
+            <label for='why_yes3'>I believe voting is important.</label><br>
+            <input type='radio' name='why_yes' id='why_yes4' value='4'>
+            <label for='why_yes4'>My family and/or friends asked me to vote.</label><br>
+            <input type='radio' name='why_yes' id='why_yes5' value='5'>
+            <label for='why_yes5'>I don't know.</label><br>
+        </div>
 
-          <h3>On a scale on 1 to 10, with <span class='textLabel'>10
+        <div class='question q6'>
+
+          <h3>Which candidate do you most support right now?</h3>
+
+          <div class='q6List'></div>
+        </div>
+
+        <div class='question q7'>
+
+          <h4>On a scale of 1 to 10 with
+            <span class='textLabel'>1 being very unenthusiastic</span> and
+            <span class='textLabel'>10 being very enthusiastic</span>, how do you
+            feel about <span class='faveCandidate textLabel'>'s</span>
+            candidacy?</h4>
+
+            <div style="width: 500px; margin: 8px auto;"
+              class="overLabel">
+              <div style="float: left; width: 250px; text-align: left;">
+                Very Unenthusiastic
+              </div>
+              <div style="float: left; width: 250px; text-align: right;">
+                Very Enthusiastic
+              </div>
+            </div>
+            <div class='clearFloat'></div>
+
+            <div class='optionContainer'>
+              <div class='optionDiv'>
+                <input type='radio' name='enthusiasm2' id='enthusiasm2_1' value='1'><br>
+                <label for='enthusiasm2_1'>1</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='enthusiasm2' id='enthusiasm2_2' value='2'><br>
+                <label for='enthusiasm2_2'>2</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='enthusiasm2' id='enthusiasm2_3' value='3'><br>
+                <label for='enthusiasm2_3'>3</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='enthusiasm2' id='enthusiasm2_4' value='4'><br>
+                <label for='enthusiasm2_4'>4</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='enthusiasm2' id='enthusiasm2_5' value='5'><br>
+                <label for='enthusiasm2_5'>5</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='enthusiasm2' id='enthusiasm2_6' value='6'><br>
+                <label for='enthusiasm2_6'>6</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='enthusiasm2' id='enthusiasm2_7' value='7'><br>
+                <label for='enthusiasm2_7'>7</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='enthusiasm2' id='enthusiasm2_8' value='8'><br>
+                <label for='enthusiasm2_8'>8</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='enthusiasm2' id='enthusiasm2_9' value='9'><br>
+                <label for='enthusiasm2_9'>9</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='enthusiasm2' id='enthusiasm2_10' value='10'><br>
+                <label for='enthusiasm2_10'>10</label>
+              </div>
+              <div class='clearFloat'></div>
+            </div>
+
+        </div>
+
+        <div class='question q8'>
+
+          <h4>On a scale of 1 to 10 with
+            <span class='textLabel'>1 being very Liberal</span> and
+            <span class='textLabel'>10 being very Conservative</span>, please rate
+            <span class='textLabel'>your own</span> ideology.</h4>
+
+            <div style="width: 500px; margin: 8px auto;"
+              class="overLabel">
+              <div style="float: left; width: 250px; text-align: left;">
+                Very Liberal
+              </div>
+              <div style="float: left; width: 250px; text-align: right;">
+                Very Conservative
+              </div>
+            </div>
+            <div class='clearFloat'></div>
+
+            <div class='optionContainer'>
+              <div class='optionDiv'>
+                <input type='radio' name='yourself2' id='yourself2_1' value='1'><br>
+                <label for='yourself2_1'>1</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='yourself2' id='yourself2_2' value='2'><br>
+                <label for='yourself2_2'>2</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='yourself2' id='yourself2_3' value='3'><br>
+                <label for='yourself2_3'>3</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='yourself2' id='yourself2_4' value='4'><br>
+                <label for='yourself2_4'>4</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='yourself2' id='yourself2_5' value='5'><br>
+                <label for='yourself2_5'>5</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='yourself2' id='yourself2_6' value='6'><br>
+                <label for='yourself2_6'>6</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='yourself2' id='yourself2_7' value='7'><br>
+                <label for='yourself2_7'>7</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='yourself2' id='yourself2_8' value='8'><br>
+                <label for='yourself2_8'>8</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='yourself2' id='yourself2_9' value='9'><br>
+                <label for='yourself2_9'>9</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='yourself2' id='yourself2_10' value='10'><br>
+                <label for='yourself2_10'>10</label>
+              </div>
+              <div class='clearFloat'></div>
+            </div>
+        </div>
+
+        <div class='question q9'>
+
+          <h4>On a scale of 1 to 10 with
+            <span class='textLabel'>1 being very Liberal</span> and
+            <span class='textLabel'>10 being very Conservative</span>, please rate
+            <span class='textLabel'>John Kasich's</span> ideology.</h4>
+
+            <div style="width: 500px; margin: 8px auto;"
+              class="overLabel">
+              <div style="float: left; width: 250px; text-align: left;">
+                Very Liberal
+              </div>
+              <div style="float: left; width: 250px; text-align: right;">
+                Very Conservative
+              </div>
+            </div>
+            <div class='clearFloat'></div>
+
+            <div class='optionContainer'>
+              <div class='optionDiv'>
+                <input type='radio' name='kasich2' id='kasich2_1' value='1'><br>
+                <label for='kasich2_1'>1</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='kasich2' id='kasich2_2' value='2'><br>
+                <label for='kasich2_2'>2</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='kasich2' id='kasich2_3' value='3'><br>
+                <label for='kasich2_3'>3</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='kasich2' id='kasich2_4' value='4'><br>
+                <label for='kasich2_4'>4</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='kasich2' id='kasich2_5' value='5'><br>
+                <label for='kasich2_5'>5</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='kasich2' id='kasich2_6' value='6'><br>
+                <label for='kasich2_6'>6</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='kasich2' id='kasich2_7' value='7'><br>
+                <label for='kasich2_7'>7</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='kasich2' id='kasich2_8' value='8'><br>
+                <label for='kasich2_8'>8</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='kasich2' id='kasich2_9' value='9'><br>
+                <label for='kasich2_9'>9</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='kasich2' id='kasich2_10' value='10'><br>
+                <label for='kasich2_10'>10</label>
+              </div>
+              <div class='clearFloat'></div>
+            </div>
+        </div>
+
+        <div class='question q10'>
+
+          <h4>On a scale of 1 to 10 with
+            <span class='textLabel'>1 being very Liberal</span> and
+            <span class='textLabel'>10 being very Conservative</span>, please rate
+            <span class='textLabel'>Hillary Clinton's</span> ideology.</h4>
+
+            <div style="width: 500px; margin: 8px auto;"
+              class="overLabel">
+              <div style="float: left; width: 250px; text-align: left;">
+                Very Liberal
+              </div>
+              <div style="float: left; width: 250px; text-align: right;">
+                Very Conservative
+              </div>
+            </div>
+            <div class='clearFloat'></div>
+
+            <div class='optionContainer'>
+              <div class='optionDiv'>
+                <input type='radio' name='clinton2' id='clinton2_1' value='1'><br>
+                <label for='clinton2_1'>1</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='clinton2' id='clinton2_2' value='2'><br>
+                <label for='clinton2_2'>2</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='clinton2' id='clinton2_3' value='3'><br>
+                <label for='clinton2_3'>3</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='clinton2' id='clinton2_4' value='4'><br>
+                <label for='clinton2_4'>4</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='clinton2' id='clinton2_5' value='5'><br>
+                <label for='clinton2_5'>5</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='clinton2' id='clinton2_6' value='6'><br>
+                <label for='clinton2_6'>6</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='clinton2' id='clinton2_7' value='7'><br>
+                <label for='clinton2_7'>7</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='clinton2' id='clinton2_8' value='8'><br>
+                <label for='clinton2_8'>8</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='clinton2' id='clinton2_9' value='9'><br>
+                <label for='clinton2_9'>9</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='clinton2' id='clinton2_10' value='10'><br>
+                <label for='clinton2_10'>10</label>
+              </div>
+              <div class='clearFloat'></div>
+            </div>
+        </div>
+
+        <div class='question q11'>
+
+          <h4>On a scale of 1 to 10 with
+            <span class='textLabel'>1 being very Liberal</span> and
+            <span class='textLabel'>10 being very Conservative</span>, please rate
+            <span class='textLabel'>Ted Cruz's</span> ideology.</h4>
+
+            <div style="width: 500px; margin: 8px auto;"
+              class="overLabel">
+              <div style="float: left; width: 250px; text-align: left;">
+                Very Liberal
+              </div>
+              <div style="float: left; width: 250px; text-align: right;">
+                Very Conservative
+              </div>
+            </div>
+            <div class='clearFloat'></div>
+
+            <div class='optionContainer'>
+              <div class='optionDiv'>
+                <input type='radio' name='cruz2' id='cruz2_1' value='1'><br>
+                <label for='cruz2_1'>1</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='cruz2' id='cruz2_2' value='2'><br>
+                <label for='cruz2_2'>2</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='cruz2' id='cruz2_3' value='3'><br>
+                <label for='cruz2_3'>3</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='cruz2' id='cruz2_4' value='4'><br>
+                <label for='cruz2_4'>4</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='cruz2' id='cruz2_5' value='5'><br>
+                <label for='cruz2_5'>5</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='cruz2' id='cruz2_6' value='6'><br>
+                <label for='cruz2_6'>6</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='cruz2' id='cruz2_7' value='7'><br>
+                <label for='cruz2_7'>7</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='cruz2' id='cruz2_8' value='8'><br>
+                <label for='cruz2_8'>8</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='cruz2' id='cruz2_9' value='9'><br>
+                <label for='cruz2_9'>9</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='cruz2' id='cruz2_10' value='10'><br>
+                <label for='cruz2_10'>10</label>
+              </div>
+              <div class='clearFloat'></div>
+            </div>
+        </div>
+
+        <div class='question q12'>
+
+          <h4>On a scale of 1 to 10 with
+            <span class='textLabel'>1 being very Liberal</span> and
+            <span class='textLabel'>10 being very Conservative</span>, please rate
+            <span class='textLabel'>Bernie Sanders's</span> ideology.</h4>
+
+            <div style="width: 500px; margin: 8px auto;"
+              class="overLabel">
+              <div style="float: left; width: 250px; text-align: left;">
+                Very Liberal
+              </div>
+              <div style="float: left; width: 250px; text-align: right;">
+                Very Conservative
+              </div>
+            </div>
+            <div class='clearFloat'></div>
+
+            <div class='optionContainer'>
+              <div class='optionDiv'>
+                <input type='radio' name='sanders2' id='sanders2_1' value='1'><br>
+                <label for='sanders2_1'>1</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='sanders2' id='sanders2_2' value='2'><br>
+                <label for='sanders2_2'>2</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='sanders2' id='sanders2_3' value='3'><br>
+                <label for='sanders2_3'>3</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='sanders2' id='sanders2_4' value='4'><br>
+                <label for='sanders2_4'>4</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='sanders2' id='sanders2_5' value='5'><br>
+                <label for='sanders2_5'>5</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='sanders2' id='sanders2_6' value='6'><br>
+                <label for='sanders2_6'>6</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='sanders2' id='sanders2_7' value='7'><br>
+                <label for='sanders2_7'>7</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='sanders2' id='sanders2_8' value='8'><br>
+                <label for='sanders2_8'>8</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='sanders2' id='sanders2_9' value='9'><br>
+                <label for='sanders2_9'>9</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='sanders2' id='sanders2_10' value='10'><br>
+                <label for='sanders2_10'>10</label>
+              </div>
+              <div class='clearFloat'></div>
+            </div>
+        </div>
+
+        <div class='question q13'>
+
+          <h4>On a scale of 1 to 10 with
+            <span class='textLabel'>1 being very Liberal</span> and
+            <span class='textLabel'>10 being very Conservative</span>, please rate
+            <span class='textLabel'>Donald Trump's</span> ideology.</h4>
+
+            <div style="width: 500px; margin: 8px auto;"
+              class="overLabel">
+              <div style="float: left; width: 250px; text-align: left;">
+                Very Liberal
+              </div>
+              <div style="float: left; width: 250px; text-align: right;">
+                Very Conservative
+              </div>
+            </div>
+            <div class='clearFloat'></div>
+
+            <div class='optionContainer'>
+              <div class='optionDiv'>
+                <input type='radio' name='trump2' id='trump2_1' value='1'><br>
+                <label for='trump2_1'>1</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='trump2' id='trump2_2' value='2'><br>
+                <label for='trump2_2'>2</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='trump2' id='trump2_3' value='3'><br>
+                <label for='trump2_3'>3</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='trump2' id='trump2_4' value='4'><br>
+                <label for='trump2_4'>4</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='trump2' id='trump2_5' value='5'><br>
+                <label for='trump2_5'>5</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='trump2' id='trump2_6' value='6'><br>
+                <label for='trump2_6'>6</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='trump2' id='trump2_7' value='7'><br>
+                <label for='trump2_7'>7</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='trump2' id='trump2_8' value='8'><br>
+                <label for='trump2_8'>8</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='trump2' id='trump2_9' value='9'><br>
+                <label for='trump2_9'>9</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='trump2' id='trump2_10' value='10'><br>
+                <label for='trump2_10'>10</label>
+              </div>
+              <div class='clearFloat'></div>
+            </div>
+        </div>
+
+        <div class='question q14'>
+
+          <h4>On a scale of 1 to 10 with
+            <span class='textLabel'>1 being very Liberal</span> and
+            <span class='textLabel'>10 being very Conservative</span>, please rate
+            <span class='textLabel'>Marco Rubio's</span> ideology.</h4>
+
+            <div style="width: 500px; margin: 8px auto;"
+              class="overLabel">
+              <div style="float: left; width: 250px; text-align: left;">
+                Very Liberal
+              </div>
+              <div style="float: left; width: 250px; text-align: right;">
+                Very Conservative
+              </div>
+            </div>
+            <div class='clearFloat'></div>
+
+            <div class='optionContainer'>
+              <div class='optionDiv'>
+                <input type='radio' name='rubio2' id='rubio2_1' value='1'><br>
+                <label for='rubio2_1'>1</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='rubio2' id='rubio2_2' value='2'><br>
+                <label for='rubio2_2'>2</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='rubio2' id='rubio2_3' value='3'><br>
+                <label for='rubio2_3'>3</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='rubio2' id='rubio2_4' value='4'><br>
+                <label for='rubio2_4'>4</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='rubio2' id='rubio2_5' value='5'><br>
+                <label for='rubio2_5'>5</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='rubio2' id='rubio2_6' value='6'><br>
+                <label for='rubio2_6'>6</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='rubio2' id='rubio2_7' value='7'><br>
+                <label for='rubio2_7'>7</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='rubio2' id='rubio2_8' value='8'><br>
+                <label for='rubio2_8'>8</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='rubio2' id='rubio2_9' value='9'><br>
+                <label for='rubio2_9'>9</label>
+              </div>
+              <div class='optionDiv'>
+                <input type='radio' name='rubio2' id='rubio2_10' value='10'><br>
+                <label for='rubio2_10'>10</label>
+              </div>
+              <div class='clearFloat'></div>
+            </div>
+        </div>
+
+        <div class='question q15'>
+          <h3>Do you believe that it is important for a candidate to
+          be: (Check up to three)</h3>
+          <div class='q15List'></div>
+        </div>
+
+        <div class='question q16'>
+          <h3>What do you believe is the most important issue facing us today?
+          (Choose one)</h3>
+          <div class='q16List'></div>
+        </div>
+
+        <div class='question q17'>
+          <h4>On a scale on 1 to 10, with <span class='textLabel'>10
             being very clear</span> and <span class='textLabel'>1 being very
             unclear</span>, how clear do you believe
             <span class='faveCandidate textLabel'>'s stance on </span>
-          <span class='faveIssue textLabel'></span> is?</h3>
-
-          <p><b>Click somewhere along the orange slider to activate this
-            question and then make your selection.</b></p>
-
-          <div class='claritySlider sliderLabelContainer'></div><br />
-          <div class='clearFloat'></div>
-          <input type="range" name="claritySlider" id='claritySlider'
-            class='slider notClicked' min="1" max="10" step="1">
+          <span class='faveIssue textLabel'></span> is?</h4>
 
           <div style="width: 500px; margin: 8px auto;"
-            class="claritySliderUnderLabel underLabel">
+            class="overLabel">
             <div style="float: left; width: 250px; text-align: left;">
               Very Unclear
             </div>
@@ -128,214 +659,146 @@
             </div>
           </div>
           <div class='clearFloat'></div>
+
+          <div class='optionContainer'>
+            <div class='optionDiv'>
+              <input type='radio' name='clarity2' id='clarity2_1' value='1'><br>
+              <label for='clarity2_1'>1</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='clarity2' id='clarity2_2' value='2'><br>
+              <label for='clarity2_2'>2</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='clarity2' id='clarity2_3' value='3'><br>
+              <label for='clarity2_3'>3</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='clarity2' id='clarity2_4' value='4'><br>
+              <label for='clarity2_4'>4</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='clarity2' id='clarity2_5' value='5'><br>
+              <label for='clarity2_5'>5</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='clarity2' id='clarity2_6' value='6'><br>
+              <label for='clarity2_6'>6</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='clarity2' id='clarity2_7' value='7'><br>
+              <label for='clarity2_7'>7</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='clarity2' id='clarity2_8' value='8'><br>
+              <label for='clarity2_8'>8</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='clarity2' id='clarity2_9' value='9'><br>
+              <label for='clarity2_9'>9</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='clarity2' id='clarity2_10' value='10'><br>
+              <label for='clarity2_10'>10</label>
+            </div>
+            <div class='clearFloat'></div>
+          </div>
         </div>
 
-        <div class='question q6'>
+        <div class='question q18'>
+          <h4>From 0% to 100%, what do you think
+            <span class='faveCandidate textLabel'>'s</span> chance of
+            winning thier party's nomination is?</h4>
 
-          <h3>On a scale of 1 to 10 with
-            <span class='textLabel'>10 being very enthusiastic</span> and
-            <span class='textLabel'>1 being very unenthusiastic</span>, how do you
-            feel about <span class='faveCandidate textLabel'>'s</span>
-            candidacy?</h3>
-
-          <p><b>Click somewhere along the orange slider to activate this
-            question and then make your selection.</b></p>
-
-          <div class='enthusiasmSlider sliderLabelContainer'></div><br />
-          <div class='clearFloat'></div>
-          <input type="range" name="enthusiasmSlider" id='enthusiasmSlider'
-            class='slider notClicked' min="1" max="10" step="1">
-
-          <div style="width: 500px; margin: 8px auto;"
-            class="enthusiasmSliderUnderLabel underLabel">
-            <div style="float: left; width: 250px; text-align: left;">
-              Very Unenthusiastic
+          <div style="width: 550px; margin: 8px auto;"
+            class="overLabel">
+            <div style="float: left; width: 275px; text-align: left;">
+              0% Chance
             </div>
-            <div style="float: left; width: 250px; text-align: right;">
-              Very Enthusiastic
+            <div style="float: left; width: 275px; text-align: right;">
+              100% Chance
             </div>
           </div>
           <div class='clearFloat'></div>
-        </div>
 
-        <div class='question q7'>
-          <h3>Are any of your friends or family also supporting
-          <span class='faveCandidate textLabel'></span>?</h3>
-          <input type='radio' name='peers' value='1' id='peerYes'/>
-          <label for="peerYes">Yes</label><br />
-          <input type='radio' name='peers' value='2' id='peerNo'/>
-          <label for="peerNo">No</label>
-        </div>
-
-        <div class='question q8'>
-
-          <h3>On a scale of 1 to 10 with
-            <span class='textLabel'>10</span> being very
-            <span class='textLabel'>enthusiastic</span> and
-            <span class='textLabel'>1</span> being very
-            <span class='textLabel'>unenthusiastic</span>, how
-            enthusiastic are your friends/family about
-            <span class='faveCandidate textLabel'>'s</span>
-            candidacy?</h3>
-
-          <p><b>Click somewhere along the orange slider to activate this
-            question and then make your selection.</b></p>
-
-          <div class='peerEnthusiasmSlider sliderLabelContainer'></div><br />
-          <div class='clearFloat'></div>
-          <input type="range" name="peerEnthusiasmSlider" id='peerEnthusiasmSlider'
-            class='slider notClicked' min="1" max="10" step="1">
-
-          <div style="width: 500px; margin: 8px auto;"
-            class="peerEnthusiasmSliderUnderLabel underLabel">
-            <div style="float: left; width: 250px; text-align: left;">
-              Very Unenthusiastic
+          <div class='optionContainer' style='width: 550px;'>
+            <div class='optionDiv'>
+              <input type='radio' name='chance2' id='chance2_0' value='0'><br>
+              <label for='chance2_1'>0%</label>
             </div>
-            <div style="float: left; width: 250px; text-align: right;">
-              Very Enthusiastic
+            <div class='optionDiv'>
+              <input type='radio' name='chance2' id='chance2_1' value='10'><br>
+              <label for='chance2_1'>10%</label>
             </div>
+            <div class='optionDiv'>
+              <input type='radio' name='chance2' id='chance2_2' value='20'><br>
+              <label for='chance2_2'>20%</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='chance2' id='chance2_3' value='30'><br>
+              <label for='chance2_3'>30%</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='chance2' id='chance2_4' value='40'><br>
+              <label for='chance2_4'>40%</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='chance2' id='chance2_5' value='50'><br>
+              <label for='chance2_5'>50%</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='chance2' id='chance2_6' value='60'><br>
+              <label for='chance2_6'>60%</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='chance2' id='chance2_7' value='70'><br>
+              <label for='chance2_7'>70%</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='chance2' id='chance2_8' value='80'><br>
+              <label for='chance2_8'>80%</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='chance2' id='chance2_9' value='90'><br>
+              <label for='chance2_9'>90%</label>
+            </div>
+            <div class='optionDiv'>
+              <input type='radio' name='chance2' id='chance2_10' value='100'><br>
+              <label for='chance2_10'>100%</label>
+            </div>
+            <div class='clearFloat'></div>
           </div>
-          <div class='clearFloat'></div>
         </div>
 
-        <div class='question q9'>
-          <h3>Please rate the candidates on where you think their ideology
-          falls on a spectrum from <span class='textLabel'>1 being
-          Very Liberal</span> to <span class='textLabel'>10 being
-          Very Conservative</span>
-          </h3>
-
-          <div style='height: 30px; width: 127px;
-          float: left;'></div>
-          <div style='height: 30px; width: 535px;
-          float: left;'
-
-          id='ideologyLabels'></div>
-          <div class='clearFloat'></div>
-
-          <div class='q9List'></div>
-
-          <div style='width: 140px; height: 30px; float: left;
-          margin-top: -8px; border: 1px solid #ccc'></div>
-          <div style='width: 250px; float: left; text-align: left;'>
-            Very Liberal
-          </div>
-          <div style='width: 250px; float: left; text-align: right;'>
-            Very Conservative
-          </div>
-          <div class='clearFloat'></div>
+        <div class='question q19'>
+          <h3>Do you intend to vote in the general election in November?</h3>
+            <input type='radio' name='gen_elec' id='gen_elecYes' value='1'>
+            <label for='gen_elecYes'>Yes</label><br>
+            <input type='radio' name='gen_elec' id='gen_elecNo' value='2'>
+            <label for='gen_elecNo'>No</label><br>
+            <input type='radio' name='gen_elec' id='gen_elecDunno' value='3'>
+            <label for='gen_elecDunno'>I don't know.</label>
         </div>
 
-        <div class='question q10'>
-          <h3>Are you:</h3>
-          <input type='radio' name='gender' value='1' id='male'/>
-          <label for="male">Male</label><br />
-          <input type='radio' name='gender' value='2' id='female'/>
-          <label for="female">Female</label>
+        <div class='question q20'>
+          <h4>What has been you MOST favorite thing about this presidential
+            campaign?</h4>
+            <textarea id='open_ended1'></textarea>
         </div>
 
-        <div class='question q11'>
-          <h3>Generally, do you consider yourself a:</h3>
-          <input type='radio' name='pid' value='1' id='pidDemocrat'/>
-          <label for="pidDemocrat">Democrat</label><br />
-          <input type='radio' name='pid' value='2' id='pidRepublican'/>
-          <label for="pidRepublican">Republican</label><br />
-          <input type='radio' name='pid' value='3' id='pidIndependent'/>
-          <label for="pidIndependent">Independent</label><br />
-          <input type='radio' name='pid' value='4' id='pidOther'/>
-          <label for="pidOther">Other</label>
-        </div>
-
-        <div class='question q12'>
-          <h3>This March, which primary do you intend to vote in?</h3>
-          <input type='radio' name='primary' value='1' id='primaryDemocrat'/>
-          <label for="primaryDemocrat">Democrat</label><br />
-          <input type='radio' name='primary' value='2' id='primaryRepublican'/>
-          <label for="primaryRepublican">Republican</label><br />
-          <input type='radio' name='primary' value='3' id='primaryUnknown'/>
-          <label for="primaryUnknown">I don't know yet</label><br />
-          <input type='radio' name='primary' value='4' id='primaryNone'/>
-          <label for="primaryNone">I do not plan to vote in the primary</label>
-        </div>
-
-        <div class='question q13'>
-
-          <h3>Generally, on a scale of <span class='textLabel'>1
-          representing very liberal</span> and
-          <span class='textLabel'>10 representing very conservative</span>, how would
-          you rate <span class='textLabel'>yourself?</span>
-          </h3><br />
-
-          <p><b>Click somewhere along the orange slider to activate this
-            question and then make your selection.</b></p>
-
-          <div class='yourIdeologySlider sliderLabelContainer'></div><br />
-          <div class='clearFloat'></div>
-          <input type="range" name="yourIdeologySlider" id='yourIdeologySlider'
-            class='slider notClicked' min="1" max="10" step="1">
-
-          <div style="width: 500px; margin: 8px auto;"
-            class="yourIdeologySliderUnderLabel underLabel">
-            <div style="float: left; width: 167px; text-align: left;">
-              Very Liberal
-            </div>
-            <div style="float: left; width: 166px; text-align: center;">
-              Moderate
-            </div>
-            <div style="float: left; width: 167px; text-align: right;">
-              Very Conservative
-            </div>
-          </div>
-          <div class='clearFloat'></div>
-        </div>
-
-        <div class='question q14'>
-          <h3>Are you:</h3>
-          <input type='radio' name='race' value='1' id='raceWhite'/>
-          <label for="raceWhite">White</label><br />
-          <input type='radio' name='race' value='2' id='raceBlack'/>
-          <label for="raceBlack">Black</label><br />
-          <input type='radio' name='race' value='3' id='raceHispanic'/>
-          <label for="raceHispanic">Hispanic</label><br />
-          <input type='radio' name='race' value='4' id='raceAsian'/>
-          <label for="raceAsian">Asian</label><br />
-          <input type='radio' name='race' value='5' id='raceOther'/>
-          <label for="raceOther">Other</label>
-        </div>
-
-        <div class='question q15'>
-          <h3>What is your family's household income?</h3>
+        <div class='question q21'>
           <h2>Last Question!</h2>
-          <input type='radio' name='income' value='1' id='below10k'/>
-          <label for="below10k">Less than $10,000</label><br />
-          <input type='radio' name='income' value='2' id='10-20'/>
-          <label for="10-20">$10,000 to $19,999</label><br />
-          <input type='radio' name='income' value='3' id='20-30'/>
-          <label for="20-30">$20,000 to $29,999</label><br />
-          <input type='radio' name='income' value='4' id='30-40'/>
-          <label for="30-40">$30,000 to $39,999</label><br />
-          <input type='radio' name='income' value='5' id='40-50'/>
-          <label for="40-50">$40,000 to $49,999</label><br />
-          <input type='radio' name='income' value='6' id='50-60'/>
-          <label for="50-60">$50,000 to $59,999</label><br />
-          <input type='radio' name='income' value='7' id='60-70'/>
-          <label for="60-70">$60,000 to $69,999</label><br />
-          <input type='radio' name='income' value='8' id='70-80'/>
-          <label for="70-80">$70,000 to $79,999</label><br />
-          <input type='radio' name='income' value='9' id='80-90'/>
-          <label for="80-90">$80,000 to $89,999</label><br />
-          <input type='radio' name='income' value='10' id='90-100'/>
-          <label for="90-100">$90,000 to $99,999</label><br />
-          <input type='radio' name='income' value='11' id='100-150'/>
-          <label for="100-150">$100,000 to $149,999</label><br />
-          <input type='radio' name='income' value='12' id='above150'/>
-          <label for="above150">$150,000 or above</label><br />
+          <h4>What has been you LEAST favorite thing about this presidential
+            campaign?</h4>
+            <textarea id='open_ended2'></textarea>
         </div>
 
-        <div class='question q16'></div>
+        <div class='question q22'>
+          <h2>That's it! Thank you for your participation.</h2>
+        </div>
+
 
       </div>
-
       <div class='warning'></div>
       <button class="next">Next</button>
 

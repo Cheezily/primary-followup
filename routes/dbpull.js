@@ -13,12 +13,10 @@ if (process.env.DBPULL_PW) {
   password = 'password';
 }
 
-var fields = ['userID', 'traits1', 'traits2', 'traits3', 'issues', 'chance', 'clarity',
-  'prefer', 'enthusiasm', 'peers', 'peer_enthusiasm', 'hillary_clinton_ideology',
-  'bernie_sanders_ideology', 'ted_cruz_ideology',
-  'donald_trump_ideology', 'john_kasich_ideology', 'ben_carson_ideology',
-  'marco_rubio_ideology', 'gender', 'pid', 'primary',
-  'ideology', 'race', 'income', 'time'];
+var fields = ['userID', 'vote2', 'vote_other', 'why_no', 'why_yes', 'prefer2',
+  'enthusiasm2', 'yourself2', 'sanders2', 'clinton2', 'trump2', 'kasich2',
+  'cruz2', 'traits2_1', 'traits2_2', 'traits2_3', 'issues2', 'clarity2',
+  'chance2', 'gen_elec', 'open_ended1', 'open_ended2', 'time'];
 
 
 /* GET dbpull page. */

@@ -13,35 +13,30 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
 
   if (req.body) {
-    var successResult = {
-      success: "Server response: success",
-    };
 
   var responsesSubmitted = new responses({
     userID: req.body.userID,
-    traits1: req.body.trait1,
-    traits2: req.body.trait2,
-    traits3: req.body.trait3,
-    issues: req.body.issues,
-    chance: req.body.chance,
-    clarity: req.body.clarity,
-    prefer: req.body.prefer,
-    enthusiasm: req.body.enthusiasm,
-    peers: req.body.peers,
-    peer_enthusiasm: req.body.peer_enthusiasm,
-    hillary_clinton_ideology: req.body.hillary_clinton_ideology,
-    bernie_sanders_ideology: req.body.bernie_sanders_ideology,
-    ted_cruz_ideology: req.body.ted_cruz_ideology,
-    donald_trump_ideology: req.body.donald_trump_ideology,
-    john_kasich_ideology: req.body.john_kasich_ideology,
-    ben_carson_ideology: req.body.ben_carson_ideology,
-    marco_rubio_ideology: req.body.marco_rubio_ideology,
-    gender: req.body.gender,
-    pid: req.body.pid,
-    primary: req.body.primary,
-    ideology: req.body.ideology,
-    race: req.body.race,
-    income: req.body.income,
+    vote2: req.body.vote2,
+    vote_other: req.body.vote_other,
+    why_no: req.body.why_no,
+    why_yes: req.body.why_yes,
+    prefer2: req.body.prefer2,
+    enthusiasm2: req.body.enthusiasm2,
+    yourself2: req.body.yourself2,
+    sanders2: req.body.sanders2,
+    clinton2: req.body.clinton2,
+    trump2: req.body.trump2,
+    kasich2: req.body.kasich2,
+    cruz2: req.body.cruz2,
+    traits2_1: req.body.traits2_1,
+    traits2_2: req.body.traits2_2,
+    traits2_3: req.body.traits2_3,
+    issues2: req.body.issues2,
+    clarity2: req.body.clarity2,
+    chance2: req.body.chance2,
+    gen_elec: req.body.gen_elec,
+    open_ended1: req.body.open_ended1,
+    open_ended2: req.body.open_ended2,
     time: req.body.time
   });
 
@@ -49,7 +44,7 @@ router.post('/', function(req, res, next) {
       if (err) throw err;
 
       //res.send({url: '/finished?id=' + id});
-      res.send({url: "/finished?id=" + req.body.userID});
+      res.send({success: "Responses captured for id: " + req.body.userID});
       console.log(JSON.stringify(req.body));
       console.log("Saved the user info!");
     });

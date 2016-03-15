@@ -19,6 +19,13 @@ a {
   color: #00B7FF;
 }
 
+textarea {
+  width: 400px;
+  height: 80px;
+  margin: 0 auto;
+  font-size: 15px;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -117,8 +124,20 @@ button:active {
   color: #a66;
 }
 
-.underLabel {
-  display: none;
+.overLabel {
+
+}
+
+.optionContainer {
+  width: 500px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.optionDiv {
+  width: 50px;
+  float: left;
+  text-align: center;
 }
 
 .clearFloat {

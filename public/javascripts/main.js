@@ -5,7 +5,7 @@ function startQuiz() {
   var candidates = [{id: 1, display: 'Hillary Clinton'},
     {id: 2, display: 'Bernie Sanders'}, {id: 3, display: 'Ted Cruz'},
     {id: 4, display: 'Donald Trump'}, {id: 5, display: 'John Kasich'},
-    {id: 6, display: 'Ben Carson'}, {id: 7, display: 'Marco Rubio'}];
+    {id: 6, display: 'Marco Rubio'}];
 
   var traits = [{id: 1, display: 'Honest'}, {id: 2, display: 'Trustworthy'},
     {id: 3, display: 'Experienced'}, {id: 4, display: 'Intelligent'},
@@ -23,6 +23,13 @@ function startQuiz() {
    {id: 12, display: 'Privacy/Data Security'}, {id: 13, display: 'Moral Values'},
    {id: 14, display: 'Corruption in Government'}];
 
+   var validID = [8097, 6217, 7723, 8263, 7661, 7910, 6292, 3749, 2735, 9617,
+     3923, 5873, 7347, 6958, 3872, 2721, 8634, 1979, 3910, 1734, 3082, 4587,
+     4135, 5010, 2757, 1910, 8944, 7912, 1424, 3153, 6818, 9007, 9843, 9508,
+     6636, 6615, 8033, 8395, 2955, 6764, 4459, 6129, 6773, 5738, 5085, 1540,
+     3411, 2491, 5447, 1976, 7426, 9265, 6419, 3262, 5039, 9955, 3396, 5394,
+     6677, 2447, 5558, 4390, 3131, 8437, 9999];
+
   var responses = {};
   var questionNumber = 0; //used as a step counter for the whole script
   var fadeDelay = 300; //time in ms for questions to transition
@@ -35,7 +42,7 @@ function startQuiz() {
 
   $('.next').click(function() {
 
-    //console.log(questionNumber);
+    //console.log("QN: " + questionNumber);
 
     if (questionTest(questionNumber)) {
       //questionNumber++;
@@ -55,117 +62,52 @@ function startQuiz() {
 
     questionAsked++;
 
-    if (questionAsked === 0) {
+    console.log("QN: " + questionNumber);
 
+    if (questionAsked === 0) {
+      //This is the consent statement. No options required.
     }
 
     if (questionAsked === 1) {
-      var traitList = randomize(traits.slice(0, traits.length - 1));
-      traitList[traitList.length] = traits[traits.length - 1];
-      $('.q1List').append(showList("traitList", traitList, "checkbox"));
-    }
-
-    if (questionAsked === 2) {
-      var issueList = issues.slice(0);
-      $('.q2List').append(showList("issueList", randomize(issueList), "radio"));
-    }
-
-    if (questionAsked === 3) {
-      var candidateList = candidates.slice(0);
-      $('.q3List').append(showList("candidateList", randomize(candidateList),
-       "radio"));
-    }
-
-    if (questionAsked === 4) {
-      var faveIssue = '';
-      var faveCandidate = '';
-
-      //console.log("candidate: " + responses['prefer']);
-      //console.log('issue: ' + responses["issues"]);
-
-      var issueID = Number(responses["issues"] - 1);
-      faveIssue = issues[issueID].display;
-
-      var candidateID = Number(responses["prefer"] - 1);
-      faveCand = candidates[candidateID].display;
-
-      //console.log(faveIssue);
-      //console.log(faveCand);
-
-      $('.faveCandidate').prepend(faveCand);
-      $('.faveIssue').text(faveIssue.toLowerCase());
-      setSlider('chanceSlider', '%');
-    }
-
-    if (questionAsked === 5) {
-      setSlider('claritySlider');
-    }
-
-    if (questionAsked === 6) {
-      setSlider('enthusiasmSlider');
-    }
-
-    if (questionAsked === 7) {
       //This is a simple question. No options required.
     }
 
+    if (questionAsked === 2) {
+      //This is a simple question. No options required.
+    }
+
+    if (questionAsked === 3) {
+      //This is a simple question. No options required.
+    }
+
+    if (questionAsked === 4) {
+      //This is a simple question. No options required.
+    }
+
+    if (questionAsked === 5) {
+      //This is a simple question. No options required.
+    }
+
+    if (questionAsked === 6) {
+      var candidateList = candidates.slice(0);
+      $('.q6List').append(showList("candidateList", randomize(candidateList),
+       "radio"));
+       showArray(candidateList);
+    }
+
+    if (questionAsked === 7) {
+      var candidateID = Number(responses["prefer2"] - 1);
+      faveCand = candidates[candidateID].display;
+      //console.log("candID: " + candidateID + " faveCand: " + faveCand);
+      $('.faveCandidate').prepend(faveCand);
+    }
+
     if (questionAsked === 8) {
-      setSlider('peerEnthusiasmSlider');
+      //This is a simple question. No options required.
     }
 
     if (questionAsked === 9) {
-
-      //display one label for all sliders
-      var sliderWidth = 520;
-      var max = 10;
-      var min = 1;
-      var step = 1;
-      var labelWidth = sliderWidth / ((max - min) * step);
-      var ideologyDisplayed = false;
-
-      for (var i = min; i <= max; i += step) {
-        $('#ideologyLabels').append('<div style="width: ' +
-        ((labelWidth * .92)) + 'px; height: 30px; float: left;' +
-        ' text-align: center;">' + i.toString() + "</div>");
-      }
-
-      /*
-      //display a list of the candidates and a slider for each in sequential order
-      ideologyHtml = '';
-      for (var i = 0; i < candidates.length; i++) {
-        var candDisplay = candidates[i].display;
-        //mimic the format of the variable name that will be
-        //collected with candName
-        var candName = candDisplay.toLowerCase().replace(/\s/g,'_') + "_ideology";
-
-        ideologyHtml += '<div style="height: 30px; width: 140px; float: left;' +
-        'margin: 4px 0;">' + candDisplay +
-        '</div><input type="range" min="1" max="10" class="ideologyInput" ' +
-        'name="' + candName + '" style="width: 500px; padding-top: 8px;">' +
-        '<div class="clearFloat"></div>'
-      }
-      */
-
-      //display a list of the candidates and a slider for each in random order
-      ideologyHtml = '';
-
-      var candListForSliders = candidates.slice(0);
-      var randomCandListForSliders = randomize(candListForSliders);
-
-      for (var i = 0; i < randomCandListForSliders.length; i++) {
-        var candDisplay = randomCandListForSliders[i].display;
-        //mimic the format of the variable name that will be
-        //collected with candName
-        var candName = candDisplay.toLowerCase().replace(/\s/g,'_') + "_ideology";
-
-        ideologyHtml += '<div style="height: 30px; width: 140px; float: left;' +
-        'margin: 4px 0;">' + candDisplay +
-        '</div><input type="range" min="1" max="10" class="ideologyInput" ' +
-        'name="' + candName + '" style="width: 500px; padding-top: 8px;">' +
-        '<div class="clearFloat"></div>'
-      }
-
-      $('.q9List').append(ideologyHtml);
+      //This is a simple question. No options required.
     }
 
     if (questionAsked === 10) {
@@ -181,7 +123,7 @@ function startQuiz() {
     }
 
     if (questionAsked === 13) {
-      setSlider('yourIdeologySlider');
+      //This is a simple question. No options required.
     }
 
     if (questionAsked === 14) {
@@ -189,11 +131,43 @@ function startQuiz() {
     }
 
     if (questionAsked === 15) {
-      //This is a simple question. No options required.
+      var traitList = randomize(traits.slice(0, traits.length - 1));
+      traitList[traitList.length] = traits[traits.length - 1];
+      $('.q15List').append(showList("traits2", traitList, "checkbox"));
     }
 
     if (questionAsked === 16) {
+      var issueList = issues.slice(0);
+      $('.q16List').append(showList("issues2", randomize(issueList), "radio"));
+    }
+
+    if (questionAsked === 17) {
+      var faveIssue = '';
+      var issueID = Number(responses["issues2"] - 1);
+      faveIssue = issues[issueID].display;
+      $('.faveIssue').text(faveIssue.toLowerCase());
+    }
+
+    if (questionAsked === 18) {
       //This is a simple question. No options required.
+    }
+
+    if (questionAsked === 19) {
+      //This is a simple question. No options required.
+    }
+
+    if (questionAsked === 20) {
+      //This is a simple question. No options required.
+    }
+
+    if (questionAsked === 21) {
+      //This is a simple question. No options required.
+    }
+
+    if (questionAsked === 22) {
+      responses['time'] = new Date();
+      submitData(responses);
+      $('.next').fadeOut(600);
     }
 
   };
@@ -204,9 +178,165 @@ function startQuiz() {
     if (questionAnswered === 0) return true;
 
     if (questionAnswered === 1) {
+      console.log("id: " + $('#userID').val() + " index: " + validID.indexOf(parseInt($('#userID').val())));
+      if (validID.indexOf(parseInt($('#userID').val())) != -1) {
+        responses['userID'] = $('#userID').val();
+        return true;
+      } else {
+        $('.warning').text("That's not a valid ID.  Please try again or ask Dr. Milita for help.");
+        return false;
+      }
+    }
+
+    if (questionAnswered === 2) {
+      if ($('input[name=vote2]:checked').val()) {
+        responses["vote2"] = $('input[name=vote2]:checked').val();
+        if (responses['vote2'] === "1") {
+          //whether question 2 is displayed is based on the
+          //response to question 1. '99' means no response given.
+          responses['vote_other'] = '99';
+          cycleQuestions(questionNumber, questionNumber + 3);
+          questionNumber = questionNumber + 2;
+          //showQuestionOptions(questionNumber);
+        }
+        return true;
+      } else {
+        $('.warning').text('Please select an option to continue.');
+        return false;
+      }
+    }
+
+    if (questionAnswered === 3) {
+      if ($('input[name=vote_other]:checked').val()) {
+        responses["vote_other"] = $('input[name=vote_other]:checked').val();
+        return true;
+      } else {
+        $('.warning').text('Please select an option to continue.');
+        return false;
+      }
+    }
+
+    if (questionAnswered === 4) {
+      if ($('input[name=why_no]:checked').val()) {
+        responses["why_no"] = $('input[name=why_no]:checked').val();
+        responses['why_yes'] = '99';
+        cycleQuestions(questionNumber, questionNumber + 2);
+        questionNumber++;
+        return true;
+      } else {
+        $('.warning').text('Please select an option to continue.');
+        return false;
+      }
+    }
+
+    if (questionAnswered === 5) {
+      if ($('input[name=why_yes]:checked').val()) {
+        responses["why_yes"] = $('input[name=why_yes]:checked').val();
+        responses['why_no'] = '99';
+        return true;
+      } else {
+        $('.warning').text('Please select an option to continue.');
+        return false;
+      }
+    }
+
+    if (questionAnswered === 6) {
+      console.log('cList Val: ' + $('input[name=candidateList]:checked').val())
+      if ($('input[name=candidateList]:checked').val()) {
+        responses['prefer2'] = $('input[name=candidateList]:checked').val();
+        showArray(candidates);
+        return true;
+      } else {
+        $('.warning').text('Please select an option to continue.');
+        return false;
+      }
+    }
+
+    if (questionAnswered === 7) {
+      if ($('input[name=enthusiasm2]:checked').val()) {
+        responses['enthusiasm2'] = $('input[name=enthusiasm2]:checked').val();
+        //console.log('enthusiasm: ' + responses['enthusiasm2']);
+        return true;
+      } else {
+        $('.warning').text('Please select an option to continue.');
+        return false;
+      }
+    }
+
+    if (questionAnswered === 8) {
+      if ($('input[name=yourself2]:checked').val()) {
+        responses['yourself2'] = $('input[name=yourself2]:checked').val();
+        return true;
+      } else {
+        $('.warning').text("Please select an option to continue.");
+        return false;
+      }
+    }
+
+    if (questionAnswered === 9) {
+      if ($('input[name=kasich2]:checked').val()) {
+        responses['kasich2'] = $('input[name=kasich2]:checked').val();
+        return true;
+      } else {
+        $('.warning').text("Please select an option to continue.");
+        return false;
+      }
+    }
+
+    if (questionAnswered === 10) {
+      if ($('input[name=clinton2]:checked').val()) {
+        responses['clinton2'] = $('input[name=clinton2]:checked').val();
+        return true;
+      } else {
+        $('.warning').text("Please select an option to continue.");
+        return false;
+      }
+    }
+
+    if (questionAnswered === 11) {
+      if ($('input[name=cruz2]:checked').val()) {
+        responses['cruz2'] = $('input[name=cruz2]:checked').val();
+        return true;
+      } else {
+        $('.warning').text("Please select an option to continue.");
+        return false;
+      }
+    }
+
+    if (questionAnswered === 12) {
+      if ($('input[name=sanders2]:checked').val()) {
+        responses['sanders2'] = $('input[name=sanders2]:checked').val();
+        return true;
+      } else {
+        $('.warning').text("Please select an option to continue.");
+        return false;
+      }
+    }
+
+    if (questionAnswered === 13) {
+      if ($('input[name=trump2]:checked').val()) {
+        responses['trump2'] = $('input[name=trump2]:checked').val();
+        return true;
+      } else {
+        $('.warning').text("Please select an option to continue.");
+        return false;
+      }
+    }
+
+    if (questionAnswered === 14) {
+      if ($('input[name=rubio2]:checked').val()) {
+        responses['rubio2'] = $('input[name=rubio2]:checked').val();
+        return true;
+      } else {
+        $('.warning').text("Please select an option to continue.");
+        return false;
+      }
+    }
+
+    if (questionAnswered === 15) {
       var noneOfTheAbove = false;
       var q1Length = 0;
-      $('input[name=traitList]:checked').each(function() {
+      $('input[name=traits2]:checked').each(function() {
         if ($(this).val()) q1Length++;
         //console.log("selected: " + $(this).val());
         if ($(this).val() == traits.length.toString())
@@ -220,21 +350,21 @@ function startQuiz() {
         return false;
       } else if (q1Length > 0 && q1Length <= 3) {
 
-        responses["trait1"] = '';
-        responses["trait2"] = '';
-        responses["trait3"] = '';
+        responses["traits2_1"] = '';
+        responses["traits2_2"] = '';
+        responses["traits2_3"] = '';
 
         var traitCounter = 1;
 
-        $('input[name=traitList]:checked').each( function() {
+        $('input[name=traits2]:checked').each( function() {
           if ($(this).val()) {
-            responses["trait" + traitCounter] = $(this).val()
+            responses["traits2_" + traitCounter] = $(this).val()
             traitCounter++;
           };
         });
-        console.log("answer number 1: " + responses["trait1"]);
-        console.log("answer number 2: " + responses["trait2"]);
-        console.log("answer number 3: " + responses["trait3"]);
+        console.log("answer number 1: " + responses["traits2_1"]);
+        console.log("answer number 2: " + responses["traits2_2"]);
+        console.log("answer number 3: " + responses["traits2_3"]);
         return true;
 
       } else if (q1Length < 1) {
@@ -246,9 +376,9 @@ function startQuiz() {
       }
     }
 
-    if (questionAnswered === 2) {
-      if ($('input[name=issueList]:checked').val()) {
-        responses["issues"] = $('input[name=issueList]:checked').val();
+    if (questionAnswered === 16) {
+      if ($('input[name=issues2]:checked').val()) {
+        responses["issues2"] = $('input[name=issues2]:checked').val();
         return true;
       } else {
         $('.warning').text('Please select an option to continue.');
@@ -256,9 +386,9 @@ function startQuiz() {
       }
     }
 
-    if (questionAnswered === 3) {
-      if ($('input[name=candidateList]:checked').val()) {
-        responses["prefer"] = $('input[name=candidateList]:checked').val();
+    if (questionAnswered === 17) {
+      if ($('input[name=clarity2]:checked').val()) {
+        responses["clarity2"] = $('input[name=clarity2]:checked').val();
         return true;
       } else {
         $('.warning').text('Please select an option to continue.');
@@ -266,146 +396,46 @@ function startQuiz() {
       }
     }
 
-    if (questionAnswered === 4) {
-      if (!$('input[name=chanceSlider]').hasClass('notClicked')) {
-        responses['chance'] = $('input[name=chanceSlider]').val();
-        console.log('chance: ' + responses['chance']);
+    if (questionAnswered === 18) {
+      if ($('input[name=chance2]:checked').val()) {
+        responses["chance2"] = $('input[name=chance2]:checked').val();
         return true;
       } else {
-        $('.warning').text('Please click on the orange slider and select a value.');
+        $('.warning').text('Please select an option to continue.');
         return false;
       }
     }
 
-    if (questionAnswered === 5) {
-      if (!$('input[name=claritySlider]').hasClass('notClicked')) {
-        responses['clarity'] = $('input[name=claritySlider]').val();
-        console.log('clarity: ' + responses['clarity']);
+    if (questionAnswered === 19) {
+      if ($('input[name=gen_elec]:checked').val()) {
+        responses["gen_elec"] = $('input[name=gen_elec]:checked').val();
         return true;
       } else {
-        $('.warning').text('Please click on the orange slider and select a value.');
+        $('.warning').text('Please select an option to continue.');
         return false;
       }
     }
 
-    if (questionAnswered === 6) {
-      if (!$('input[name=enthusiasmSlider]').hasClass('notClicked')) {
-        responses['enthusiasm'] = $('input[name=enthusiasmSlider]').val();
-        console.log('enthusiasm: ' + responses['enthusiasm']);
+    if (questionAnswered === 20) {
+      if ($('#open_ended1').val().length > 0) {
+        responses["open_ended1"] = $('#open_ended1').val()
         return true;
       } else {
-        $('.warning').text('Please click on the orange slider and select a value.');
+        $('.warning').text('Please list something to continue!');
         return false;
       }
     }
 
-    if (questionAnswered === 7) {
-      if ($('input[name=peers]:checked').val()) {
-        responses['peers'] = $('input[name=peers]:checked').val();
-        if (responses['peers'] === "2") {
-          //whether question 7 is displayed is based on the
-          //response to question 6. '99' means no response given.
-          responses['peer_enthusiasm'] = '99';
-          cycleQuestions(questionNumber, questionNumber + 2);
-          questionNumber++;
-          //showQuestionOptions(questionNumber);
-        }
+    if (questionAnswered === 21) {
+      if ($('#open_ended2').val().length > 0) {
+        responses["open_ended2"] = $('#open_ended2').val()
         return true;
       } else {
-        $('.warning').text("Please select an option to continue.");
+        $('.warning').text('Please list something to continue!');
         return false;
       }
     }
 
-    if (questionAnswered === 8) {
-      if (!$('input[name=peerEnthusiasmSlider]').hasClass('notClicked')) {
-        responses['peer_enthusiasm'] =
-          $('input[name=peerEnthusiasmSlider]').val();
-        return true;
-      } else {
-        $('.warning').text('Please click on the orange slider and select a value.');
-        return false;
-      }
-    }
-
-    if (questionAnswered === 9) {
-      //store the response for each candidate in its own variable
-      //with a name that matches the field in the database once submitted
-      $('.ideologyInput').each(function() {
-        var name = $(this).attr("name");
-        responses[name] = $(this).val();
-      });
-      return true;
-    }
-
-    if (questionAnswered === 10) {
-      if ($('input[name=gender]:checked').val()) {
-        responses["gender"] = $('input[name=gender]:checked').val();
-        return true;
-      } else {
-        $('.warning').text("Please select an option to continue.");
-        return false;
-      }
-    }
-
-    if (questionAnswered === 11) {
-      if ($('input[name=pid]:checked').val()) {
-        responses["pid"] = $('input[name=pid]:checked').val();
-        return true;
-      } else {
-        $('.warning').text("Please select an option to continue.");
-        return false;
-      }
-    }
-
-    if (questionAnswered === 12) {
-      if ($('input[name=primary]:checked').val()) {
-        responses["primary"] = $('input[name=primary]:checked').val();
-        return true;
-      } else {
-        $('.warning').text("Please select an option to continue.");
-        return false;
-      }
-    }
-
-    if (questionAnswered === 13) {
-      if (!$('input[name=yourIdeologySlider]').hasClass('notClicked')) {
-        responses['ideology'] =
-          $('input[name=yourIdeologySlider]').val();
-        return true;
-      } else {
-        $('.warning').text('Please click on the orange slider and select a value.');
-        return false;
-      }
-    }
-
-    if (questionAnswered === 14) {
-      if ($('input[name=race]:checked').val()) {
-        responses["race"] = $('input[name=race]:checked').val();
-        return true;
-      } else {
-        $('.warning').text("Please select an option to continue.");
-        return false;
-      }
-    }
-
-    if (questionAnswered === 15) {
-      if ($('input[name=income]:checked').val()) {
-        responses["income"] = $('input[name=income]:checked').val();
-
-        //create an initial userID to try
-        userID = makeNewId();
-        console.log("trying userID: " + userID);
-
-        //calls the function to check if the generated userID is a duplicate
-        checkID(userID);
-
-        return true;
-      } else {
-        $('.warning').text("Please select an option to continue.");
-        return false;
-      }
-    }
 
   };
 
@@ -462,9 +492,10 @@ function startQuiz() {
     }, fadeDelay + 50);
 
   };
-
+/*
 ///////////////////////////////////////////////////////
 //need to make sure that the userID isn't already taken
+
   function checkID(id) {
 
     $.ajax({
@@ -486,9 +517,7 @@ function startQuiz() {
 
 
   function setID(id) {
-    responses['userID'] = id;
     responses['time'] = new Date();
-    console.log('your id is: ' + responses['userID']);
     submitData(responses);
   }
 
@@ -506,7 +535,7 @@ function startQuiz() {
 
   }
 
-
+*/
   //////////////////////////////////////////////////////////////
   //submit completed user data to the database
   function submitData(dataOut) {
@@ -516,15 +545,13 @@ function startQuiz() {
       data: dataOut,
       success: function(response) {
         //$('.warning').text(response.success);
-        //$('#idOutput').text(window.location.href + response);
         $('.next').hide();
-        //console.log('location: ' + window.location.href + response);
-        window.location.replace(response.url);
+        window.location.replace('/finished');
       },
       dataType: 'json'
     });
   }
-
+/*
   ////////////////////////////////////////////////////////////////
   //sets up the labels on the slider whose class name is passed in
   function setSlider(name, suffix) {
@@ -565,14 +592,6 @@ function startQuiz() {
      step = Number(slider.attr('step'));
      labelWidth = sliderWidth / ((max - min) / step);
 
-  /*
-     console.log('sliderWidth: ' + sliderWidth);
-     console.log('max: ' + max);
-     console.log('min: ' + min);
-     console.log('step: ' + step);
-     console.log('labelWidth: ' + labelWidth);
-     console.log('labelDiv: ' + labelDiv);
-  */
 
     if (!displayed) {
 
@@ -581,11 +600,6 @@ function startQuiz() {
 
       for (var i = min; i <= max; i += step) {
 
-        /*
-        $(labelDiv).append('<div class="sliderLabel" style="width: ' +
-        ((labelWidth * .97)) + 'px;" id="' + name + i + '">' + i.toString() +
-        suffix + "<br>|</div>");
-        */
 
         $(labelDiv).append('<div class="sliderLabel" style="width: ' +
         ((labelWidth * .97)) + 'px;" id="' + name + i + '">' + i.toString() +
@@ -614,6 +628,14 @@ function startQuiz() {
    // fake change at page load
    //.trigger('change');
   };
+*/
+function showArray(array) {
+  console.log("-----------------");
+  $.each(array, function(index, value) {
+    console.log('index: ' + value['id'] + ' data: ' + value['display'])
+  })
+}
+
 
 };
 
