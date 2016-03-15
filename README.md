@@ -1,2 +1,2 @@
-# primary-voting-study
-Academic survey of primary candidate preferences vs demographic info.  Will have a 2nd part to track voting.
+# primary voting study followup
+Second part of an academic survey of primary candidate preferences vs demographic info.  This section captures voting behavior.
