@@ -492,50 +492,7 @@ function startQuiz() {
     }, fadeDelay + 50);
 
   };
-/*
-///////////////////////////////////////////////////////
-//need to make sure that the userID isn't already taken
 
-  function checkID(id) {
-
-    $.ajax({
-      type: 'post',
-      url: '/idCheck',
-      data: {userID: id},
-      success: function(result) {
-        if (result.status === "clear") {
-          console.log("ID GOOD TO GO");
-          setID(id);
-        } else {
-          console.log("DUPLICATE ID");
-          tryNewID();
-        }
-      },
-      dataType: 'json'
-    });
-  }
-
-
-  function setID(id) {
-    responses['time'] = new Date();
-    submitData(responses);
-  }
-
-
-  function tryNewID() {
-    checkID(makeNewId());
-  }
-
-
-  function makeNewId() {
-
-    //id needs to be a 4 digit number that's greater than 1000
-    var id = (Math.random() * (9999 - 1000) + 1000).toFixed(0);
-    return id.toString();
-
-  }
-
-*/
   //////////////////////////////////////////////////////////////
   //submit completed user data to the database
   function submitData(dataOut) {
@@ -551,84 +508,7 @@ function startQuiz() {
       dataType: 'json'
     });
   }
-/*
-  ////////////////////////////////////////////////////////////////
-  //sets up the labels on the slider whose class name is passed in
-  function setSlider(name, suffix) {
 
-   var slider;
-   var labelDiv = '.' + name;
-   var displayed = false;
-   if (!suffix) {
-     var suffix = '';
-   }
-
-   //start with the label container hidden, but taking up full space
-   $(labelDiv).css({opacity: "0"});
-
-   //hides the at the start thumb to not influence participants with a default value
-   $("input[name='" + name + "']").addClass("noThumb");
-
-   //removes notClicked class to pass the question check and triggers
-   //a change to make the labels visible
-   $("input[name='" + name + "']").focus(function() {
-     $("input[name='" + name + "']").removeClass("noThumb");
-     $("input[name='" + name + "']").removeClass("notClicked");
-     $("input[name='" + name + "']").trigger("change");
-   });
-
-   // Select all range inputs, watch for change
-   $("input[name='" + name + "']").change(function() {
-
-     $("input[name='" + name + "']").removeClass("noThumb");
-
-     // Cache this for efficiency
-     slider = $(this);
-
-     // Measure attributes of the slider
-     sliderWidth = slider.width();
-     max = Number(slider.attr('max'));
-     min = Number(slider.attr('min'));
-     step = Number(slider.attr('step'));
-     labelWidth = sliderWidth / ((max - min) / step);
-
-
-    if (!displayed) {
-
-      $(labelDiv).css({left: "-=" + parseInt((labelWidth / 2)) + "px",
-        width: "+=" + (labelWidth - 16) + "px"});
-
-      for (var i = min; i <= max; i += step) {
-
-
-        $(labelDiv).append('<div class="sliderLabel" style="width: ' +
-        ((labelWidth * .97)) + 'px;" id="' + name + i + '">' + i.toString() +
-        suffix + "</div>");
-      }
-      displayed = true;
-
-      //shows the labels now that they're added to the container div
-      $(labelDiv).animate({opacity: "1"}, 300);
-      $("." + name + "UnderLabel").fadeIn(300);
-    }
-
-     //highlights the label that the slider is on
-     for (var i = min; i <= max; i += step) {
-
-       var labelID = '#' + name + i;
-
-       if (Number($("input[name='" + name + "']").val()) === i) {
-         $(labelID).addClass('sliderLabelOn');
-       } else {
-         $(labelID).removeClass('sliderLabelOn');
-       }
-     }
-
-   })
-   // fake change at page load
-   //.trigger('change');
-  };
-*/
 function showArray(array) {
   console.log("-----------------");
   $.each(array, function(index, value) {
